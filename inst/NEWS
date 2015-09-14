@@ -1,0 +1,84 @@
+********************************************************
+****       CHANGES IN immer PACKAGE VERSIONS        ****
+********************************************************
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Item Response Models for Multiple Ratings (immer)
+Alexander Robitzsch & Jan Steinfeld
+
+ 
+    #@#################################################################@   
+   :#@##################################################################`  
+   #####################################################################+  
+   #####################################################################@  
+  .##########@###########################################################` 
+  +######@+;'@##########################################################@: 
+  ######'     +@########################################################## 
+  #####+ ##'  `##########################################################@ 
+  ####@ ####  +@#@##################################################@##### 
+ .#####.#####@######@#########@#@######@@####@##@############@######@#####`
+ :####+:###@:,@##@,;##@+@##@+'###@;.'##@##@##@''@#####@@'+@###,;##@;######.
+ ;####@ @##   ##@  ,;    :,    .#    ':    :.    ,@@#'     ';   ,+   @####.
+ '#####`:##   #@   : ''    ++   @@;  ` +;    +'   #@' `+@   #@  .    #####,
+ +######, #   : ,   @#@   +#@  `##,   @#@   @##  `#@  `##   @#`  +,  @####:
+ +#######@@  :+@`  ;##'  `##@  .@#   +##:  `###  .@.  @#+   #:  .##@@#####:
+ '########:  ##@   @#@,  ;##;  ;#@   @##`  +##,  +#       `@#`  ##########,
+ ;########   @##   ###`  @##`  @#+  `###   @##   ##   ,;'@##@   @#########,
+ :#######@  `##+  ,##@   @#@   @#,  '##@   ##@   @@  `#######  `##########.
+ .#######+  ,##.  @##+  `##@  .##`  @##;  ,##@  `##   ###; #;  :#@,+###### 
+  #######'    #   @##:  ,##;  ;##   @##`  +###   `@:     `;#.  @@:  ###### 
+  #######@,`,##.`,###,..###,  #@#..,##@,..####:` +#@'  ``#+#` `@#+ :#####@ 
+  #########################:   ,###################@#####@###@#@#########@ 
+  '########################@+;+##########################################: 
+  ,######################################################################` 
+   ##@##################################################################@  
+                            
+                   
+
+mailto:
+-------
+
+* For reporting a bug, please provide always a reproducible R script 
+  and (if necessary) a corresponding dataset.
+
+* Mail to the author of a function in the immer package
+  which is mentioned as "Author(s)" at the R help page.
+
+
+URL:
+----
+For development versions see
+https://sites.google.com/site/alexanderrobitzsch/software
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+-------------------------------------------------------
+Changes in Version 0.1   (2015-mm-dd)
+-------------------------------------------------------
+
+ADDED * included functions 'immer_HRM' and 'simulate_HRM'
+        for estimating and simulating the hierarchical
+        rater model (Patz et al., 2002)
+ADDED * included utility function 'immer_reshape_wideformat'
+        for converting a rating dataset into a wideformat 
+ADDED * included 'immer_opcat' for estimating integer
+        item discriminations
+ADDED * included linear logistic partial credit model in
+        estimated by conditional maximum likelihood in
+        'immer_cml'. This functions uses the
+        psychotools::elementary_symmetric_function function.        
+ADDED * included installation function 'immer_install'
+        for installing the facets program
+ADDED * included wrapper function 'immer_FACETS' to the
+        FACETS program
+
+DATA  * included/modified datasets: 
+        data.immer01a, ..., data.immer06
+EXAMP * included/modified examples: immer_HRM (1,2),
+        immer_reshape_wideformat (1), immer_opcat (1),
+        immer_cml (1,2,3), immer_FACETS (1), immer_install (1)

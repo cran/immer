@@ -1,0 +1,170 @@
+\name{data.immer}
+
+\alias{data.immer01a}
+\alias{data.immer01b}
+\alias{data.immer02}
+\alias{data.immer03}
+\alias{data.immer04a}
+\alias{data.immer04b}
+\alias{data.immer05}
+\alias{data.immer06}
+
+
+\docType{data}
+
+
+\title{
+Some Example Datasets for the \pkg{immer} Package
+}
+
+
+\description{
+Some example rating datasets for the \pkg{immer} package.
+}
+
+
+\usage{
+data(data.immer01a)
+data(data.immer01b)
+data(data.immer02)
+data(data.immer03)
+data(data.immer04a)
+data(data.immer04b)
+data(data.immer05)
+}
+
+
+\format{
+
+\itemize{	
+	
+\item The format of the dataset \code{data.immer01a} is:
+
+\code{'data.frame':   23904 obs. of  8 variables:} \cr
+\code{ $ idstud: int  10001 10001 10003 10003 10003 10004 10004 10005 10005 10006 ...} \cr
+\code{ $ type  : Factor w/ 2 levels "E","I": 1 2 1 1 2 1 2 1 2 1 ...} \cr
+\code{ $ rater : Factor w/ 57 levels "R101","R102",..: 1 36 33 20 21 57 36 9 31 21 ...} \cr
+\code{ $ k1    : int  2 1 0 0 0 2 2 1 2 0 ...} \cr
+\code{ $ k2    : int  1 1 0 0 0 1 1 1 2 0 ...} \cr
+\code{ $ k3    : int  1 1 0 0 0 1 1 1 2 1 ...} \cr
+\code{ $ k4    : int  2 2 1 0 0 1 1 1 2 1 ...} \cr
+\code{ $ k5    : int  1 2 0 0 0 2 1 2 3 2 ...} \cr
+
+\item The format of the dataset \code{data.immer01b} is:
+
+\code{'data.frame':   4244 obs. of  8 variables:} \cr
+\code{ $ idstud: int  10001 10003 10005 10007 10009 10016 10018 10022 10024 10029 ...} \cr
+\code{ $ type  : Factor w/ 1 level "E": 1 1 1 1 1 1 1 1 1 1 ...} \cr
+\code{ $ rater : Factor w/ 20 levels "R101","R102",..: 1 20 9 5 14 19 20 6 10 10 ...} \cr
+\code{ $ k1    : int  2 0 1 2 2 2 3 1 3 2 ...} \cr
+\code{ $ k2    : int  1 0 1 2 2 1 3 2 2 1 ...} \cr
+\code{ $ k3    : int  1 0 1 1 3 2 2 1 3 1 ...} \cr
+\code{ $ k4    : int  2 0 1 2 3 2 2 2 3 2 ...} \cr
+\code{ $ k5    : int  1 0 2 1 3 1 2 3 3 1 ...} 
+
+This dataset is a subset of \code{data.immer01a}. \cr
+
+
+
+
+\item The format of the dataset \code{data.immer02} is:
+
+\code{'data.frame':   6105 obs. of  6 variables:} \cr
+\code{ $ idstud: int  10002 10004 10005 10006 10007 10008 10009 10010 10013 10014 ...} \cr
+\code{ $ rater : Factor w/ 44 levels "DR101","DR102",..: 43 15 12 21 9 3 35 24 11 17 ...} \cr
+\code{ $ a1    : int  3 1 2 1 0 2 1 2 1 1 ...} \cr
+\code{ $ a2    : int  3 0 3 1 0 3 0 2 2 1 ...} \cr
+\code{ $ a3    : int  1 2 0 1 2 3 2 2 1 1 ...} \cr
+\code{ $ a4    : int  2 1 2 1 1 3 1 2 2 1 ...} \cr
+
+
+
+
+\item The format of the dataset \code{data.immer03} is:
+
+\code{'data.frame':   6466 obs. of  6 variables:} \cr
+\code{ $ idstud: int  10001 10002 10003 10004 10005 10006 10007 10009 10010 10012 ...} \cr
+\code{ $ rater : Factor w/ 44 levels "R101","R102",..: 18 10 8 25 19 31 16 22 29 6 ...} \cr
+\code{ $ b1    : int  1 2 1 3 3 2 3 2 2 1 ...} \cr
+\code{ $ b2    : int  2 1 0 3 3 1 1 2 2 1 ...} \cr
+\code{ $ b3    : int  2 3 1 2 3 1 2 2 2 2 ...} \cr
+\code{ $ b4    : int  1 2 0 2 2 2 3 2 3 1 ...} \cr
+
+
+\item The format of the dataset \code{data.immer04a} is:
+
+\code{'data.frame':   25578 obs. of  7 variables:} \cr
+\code{ $ idstud: int  10001 10001 10001 10002 10002 10002 10003 10003 10004 10004 ...} \cr
+\code{ $ task  : Factor w/ 4 levels "l1","l2","s1",..: 1 4 4 1 1 3 1 3 2 2 ...} \cr
+\code{ $ rater : Factor w/ 43 levels "R101","R102",..: 14 31 25 39 35 19 43 27 12 4 ...} \cr
+\code{ $ TA    : int  5 2 4 0 0 0 2 6 5 3 ...} \cr
+\code{ $ CC    : int  4 1 3 1 0 0 2 6 4 3 ...} \cr
+\code{ $ GR    : int  4 1 2 1 0 0 1 7 5 2 ...} \cr
+\code{ $ VOC   : int  4 2 3 1 0 0 1 6 5 3 ...} \cr
+
+
+
+\item The format of the dataset \code{data.immer04b} is:
+
+\code{'data.frame':   2975 obs. of  7 variables:} \cr
+\code{ $ idstud: int  10002 10004 10010 10013 10015 10016 10024 10025 10027 10033 ...} \cr
+\code{ $ task  : Factor w/ 1 level "s1": 1 1 1 1 1 1 1 1 1 1 ...} \cr
+\code{ $ rater : Factor w/ 20 levels "R101","R102",..: 19 1 5 16 13 13 8 10 19 5 ...} \cr
+\code{ $ TA    : int  0 3 5 5 3 2 3 6 4 5 ...} \cr
+\code{ $ CC    : int  0 3 4 5 4 1 4 7 3 3 ...} \cr
+\code{ $ GR    : int  0 3 3 6 5 2 3 6 3 2 ...} \cr
+\code{ $ VOC   : int  0 2 4 6 5 2 3 6 3 2 ...} 
+
+This dataset is a subset of \code{data.immer04a}. \cr
+
+
+
+\item The format of the dataset \code{data.immer05} is:
+
+\code{'data.frame':   21398 obs. of  9 variables:} \cr
+\code{ $ idstud     : int  10001 10001 10002 10002 10003 10003 10004 10004 10005 10005 ...} \cr
+\code{ $ type       : Factor w/ 2 levels "l","s": 2 1 2 1 2 1 2 1 2 1 ...} \cr
+\code{ $ task       : Factor w/ 6 levels "l1","l4","l5",..: 5 2 6 3 5 1 5 1 5 2 ...} \cr
+\code{ $ rater      : Factor w/ 41 levels "ER101","ER102",..: 1 40 38 23 37 33 2 33 21 27 ...} \cr
+\code{ $ idstud_task: Factor w/ 19484 levels "10001l4","10001s3",..: 2 1 4 3 6 5 8 7 10 9 ...} \cr
+\code{ $ TA         : int  3 4 6 6 4 2 0 3 1 3 ...} \cr
+\code{ $ CC         : int  5 4 5 5 3 3 0 2 5 3 ...} \cr
+\code{ $ GR         : int  4 4 5 6 5 3 0 4 5 4 ...} \cr
+\code{ $ VO         : int  6 4 6 6 4 3 0 3 4 3 ...} \cr
+
+\item The dataset \code{data.immer06} is a string containing
+an input syntax for the FACETS program.
+
+}
+}
+
+
+
+
+
+%\details{
+%%  ~~ If necessary, more details than the __description__ above ~~
+%}
+
+
+%\seealso{
+%Some free datasets can be obtained from \cr
+%}
+
+%\source{
+%  ~~ reference to a publication or URL from which the data were obtained ~~
+%}
+
+
+
+%\references{
+%Bartolucci, F., Montanari, G. E., & Pandolfi, S. (2012). 
+%}
+
+
+%\examples{
+%# xx
+% }
+
+
+\keyword{datasets}

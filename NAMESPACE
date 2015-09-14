@@ -1,0 +1,99 @@
+useDynLib(immer)
+
+
+
+######################################################
+############### IMPORTS ##############################
+
+
+#***************************************************
+#*************** R Basics / Linking To *************
+
+importFrom(graphics, abline)
+importFrom(graphics, axis)
+importFrom(graphics, par)
+importFrom(graphics, plot)
+importFrom(graphics, points)
+importFrom(graphics, legend)
+importFrom(graphics, lines)
+importFrom(methods, is)
+importFrom(Rcpp, evalCpp)
+import(stats)
+importFrom(utils, download.file)
+importFrom(utils, flush.console)
+importFrom(utils, packageDescription)
+importFrom(utils, read.csv)
+importFrom(utils, unzip)
+
+
+#***************************************************
+#************** Depends ****************************
+
+
+
+#***************************************************
+#************** Imports ****************************
+
+importFrom(CDM, IRT.anova)
+importFrom(CDM, IRT.likelihood)
+importFrom(CDM, IRT.posterior)
+importFrom(coda, as.mcmc.list)
+importFrom(psychotools, elementary_symmetric_functions)
+importFrom(sirt, mcmc.list.descriptives)
+importFrom(sirt, md.pattern.sirt)
+importFrom(sirt, rowCumsums.sirt)
+importFrom(sirt, rowIntervalIndex.sirt)
+
+
+
+
+
+
+########################################################
+################  EXPORTS ##############################
+
+export( 
+   simulate_HRM ,
+   immer_HRM ,
+   immer_reshape_wideformat,
+   immer_opcat,
+   immer_cml,
+   immer_install,
+   immer_FACETS   
+	)
+
+
+#########################################################
+############### S3 METHODS ##############################
+
+
+
+#--- anova
+S3method(anova, immer_cml)
+S3method(anova, immer_HRM)
+
+#--- logLik
+S3method(logLik, immer_HRM)
+S3method(logLik, immer_cml)
+
+
+#--- plot
+S3method(plot, immer_HRM)
+
+
+#--- summary
+S3method(summary, immer_HRM)
+S3method(summary, immer_cml)
+
+
+
+#########################################################
+############### S3 METHODS IRT.xxx ######################
+
+
+#--- IRT.likelihood
+S3method(IRT.likelihood, immer_HRM)
+
+
+#--- IRT.posterior
+S3method(IRT.posterior, immer_HRM)
