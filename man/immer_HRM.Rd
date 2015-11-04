@@ -139,7 +139,7 @@ application to large-scale educational assessment data.
 
 
 \author{
-Alexander Robitzsch <a.robitzsch@bifie.at>
+Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 }
 
 

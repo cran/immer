@@ -16,7 +16,7 @@ Item Response Models for Multiple Ratings
 \tabular{ll}{
 Package: \tab \pkg{immer} \cr
 Type: \tab Package\cr
-Version: \tab 0.1 \cr
+Version: \tab 0.2 \cr
 Publication Year: \tab 2015\cr
 License: \tab GPL (>= 2)\cr
 } 
@@ -47,8 +47,7 @@ program FACETS for analyzing multi-faceted Rasch models.
 \author{
 Alexander Robitzsch, Jan Steinfeld \cr 
 \cr
-Maintainer: Alexander Robitzsch <a.robitzsch@bifie.at> \cr 
-URL: \url{https://sites.google.com/site/alexanderrobitzsch/}
+Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de> \cr 
 }
 
 %Federal Institute for Education Research, Innovation and Development of the 

@@ -140,7 +140,7 @@ New York: Springer.
 
 
 \author{
-Alexander Robitzsch <a.robitzsch@bifie.at>
+Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 }
 
 %\note{
@@ -326,6 +326,87 @@ W[ 11:13 , 2] <- 1
 # estimate model with design matrix W
 mod <- immer_cml( dat, W=W)
 summary(mod)
+
+#############################################################################
+# EXAMPLE 4: Partial credit model with raters
+#############################################################################
+
+data(data.immer07)
+dat <- data.immer07
+
+#*** reshape dataset for one variable
+dfr1 <- immer_reshape_wideformat( dat$I1 , rater = dat$rater , pid = dat$pid )
+
+#-- extract structure of design matrix
+res <- immer:::lpcm_data_prep( dat=dfr1[,-1] , weights=NULL , a=NULL)
+pars_info <- res$pars_info
+
+# specify design matrix for partial credit model and main rater effects
+# -> set sum of all rater effects to zero
+W <- matrix( 0 , nrow=nrow(pars_info) , ncol=3+2 )
+rownames(W) <- rownames(pars_info)
+colnames(W) <- c( "Cat1" , "Cat2" , "Cat3" , "R1" , "R2" )
+# define item parameters
+W[ cbind( pars_info$index , pars_info$cat ) ] <- 1
+# define rater parameters
+W[ paste(pars_info$item) == "R1" , "R1" ] <- 1
+W[ paste(pars_info$item) == "R2" , "R2" ] <- 1
+W[ paste(pars_info$item) == "R3" , c("R1","R2") ] <- -1
+# set parameter of first category to zero for identification constraints
+W <- W[,-1]
+
+# estimate model
+mod <- immer_cml( dfr1[,-1] , W=W)
+summary(mod)
+
+#############################################################################
+# EXAMPLE 5: Multi-faceted Rasch model | Estimating with a design matrix
+#############################################################################
+
+data(data.immer07)
+dat <- data.immer07
+
+#*** reshape dataset
+dfr1 <- immer_reshape_wideformat( dat[, paste0("I",1:4) ] , rater = dat$rater , 
+                pid = dat$pid )
+
+#-- structure of design matrix
+res <- immer:::lpcm_data_prep( dat=dfr1[,-1] , weights=NULL , a=NULL)
+pars_info <- res$pars_info
+
+#--- define design matrix for multi-faceted Rasch model with only main effects
+W <- matrix( 0 , nrow=nrow(pars_info) , ncol=3+2+2 )
+parnames <- rownames(W) <- rownames(pars_info)
+colnames(W) <- c( paste0("I",1:3) , paste0("Cat",1:2) , paste0("R",1:2) )
+#+ define item effects
+for (ii in c("I1","I2","I3") ){
+    ind <- grep( ii , parnames ) 
+    W[ ind  , ii ] <- pars_info$cat[ind ]
+                }
+ind <- grep( "I4" , parnames )
+W[ ind  , c("I1","I2","I3") ] <- -pars_info$cat[ind ]               
+#+ define step parameters
+for (cc in 1:2 ){
+    ind <- which( pars_info$cat == cc )
+    W[ ind  , paste0("Cat",1:cc) ] <- 1
+                }                                         
+#+ define rater effects
+for (ii in c("R1","R2") ){
+    ind <- grep( ii , parnames ) 
+    W[ ind  , ii ] <- pars_info$cat[ind ]
+                }
+ind <- grep( "R3" , parnames )
+W[ ind  , c("R1","R2") ] <- -pars_info$cat[ind ]
+
+#--- estimate model with immer_cml
+mod1 <- immer_cml( dfr1[,-1] , W=W , par_init = rep(0,ncol(W) ) )
+summary(mod1)
+
+#--- comparison with estimation in TAM
+resp <- dfr1[,-1]
+mod2 <- TAM::tam.mml.mfr( resp=dat[,-c(1:2)] , facets = dat[, "rater" , drop=FALSE ] ,
+            pid = dat$pid , formulaA = ~ item + step + rater )
+summary(mod2)
 }	
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

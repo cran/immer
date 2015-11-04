@@ -14,7 +14,7 @@ immer_reshape_wideformat(y, pid, rater, Nmin_ratings = 1)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{y}{
-Vector containing ratings
+Vector or a data frame containing ratings
 }
   \item{pid}{
 Person identifier
@@ -40,7 +40,7 @@ identifier) to one rater.
 %}
 
 \author{
-Alexander Robitzsch <a.robitzsch@bifie.at>
+Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 }
 
 %\note{
@@ -65,6 +65,21 @@ dat <- data.immer03
 dfr <- immer_reshape_wideformat( y=dat$b2 , pid=dat$idstud , rater=dat$rater , 
                     Nmin_ratings = 10 )
 head(dfr)
+
+#############################################################################
+# EXAMPLE 2: Reshaping ratings of a data frame into wide format
+#############################################################################
+
+data(data.immer07)
+dat <- data.immer07
+
+#*** Dataset 1: Wide format for item I1
+dfr1 <- immer_reshape_wideformat( dat$I1 , rater = dat$rater , pid = dat$pid )
+
+#*** Dataset 2: Wide format for four items
+dfr2 <- immer_reshape_wideformat( dat[, paste0("I",1:4) ] , 
+              rater = dat$rater , pid = dat$pid )
+str(dfr2)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

@@ -1,10 +1,10 @@
 Package: immer
 Type: Package
 Title: Item Response Models for Multiple Ratings
-Version: 0.1-1
-Date: 2015-09-13
+Version: 0.2-0
+Date: 2015-11-04
 Author: Alexander Robitzsch [aut, cre], Jan Steinfeld [aut]
-Maintainer: Alexander Robitzsch <a.robitzsch@bifie.at>
+Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description: 
  Implements some item response models for multiple
  ratings, including the hierarchical rater model, 
@@ -16,7 +16,7 @@ Imports: methods, stats, graphics, Rcpp, coda, CDM, sirt, psychotools
 Suggests: irr, TAM, eRm
 LinkingTo: Rcpp, RcppArmadillo
 License: GPL (>= 2)
-Packaged: 2015-09-13 17:52:32 UTC; robitzsch
+Packaged: 2015-11-04 16:25:57 UTC; robitzsch
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2015-09-14 09:12:50
+Date/Publication: 2015-11-04 18:41:48

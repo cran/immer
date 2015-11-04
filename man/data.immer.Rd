@@ -8,6 +8,7 @@
 \alias{data.immer04b}
 \alias{data.immer05}
 \alias{data.immer06}
+\alias{data.immer07}
 
 
 \docType{data}
@@ -31,6 +32,8 @@ data(data.immer03)
 data(data.immer04a)
 data(data.immer04b)
 data(data.immer05)
+data(data.immer06)
+data(data.immer07)
 }
 
 
@@ -135,6 +138,15 @@ This dataset is a subset of \code{data.immer04a}. \cr
 \item The dataset \code{data.immer06} is a string containing
 an input syntax for the FACETS program.
 
+\item The format of the dataset \code{data.immer07} is:
+
+\code{'data.frame':   1500 obs. of  6 variables:} \cr
+\code{ $ pid  : int  1 1 1 2 2 2 3 3 3 4 ...} \cr
+\code{ $ rater: chr  "R1" "R2" "R3" "R1" ...} \cr
+\code{ $ I1   : num  1 1 2 1 1 1 0 1 1 2 ...} \cr
+\code{ $ I2   : num  0 1 1 2 1 2 1 1 2 1 ...} \cr
+\code{ $ I3   : num  1 1 2 0 0 1 1 0 2 1 ...} \cr
+\code{ $ I4   : num  0 0 1 0 0 1 0 1 2 0 ...} \cr
 }
 }
 

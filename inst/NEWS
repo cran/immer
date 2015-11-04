@@ -57,9 +57,21 @@ https://sites.google.com/site/alexanderrobitzsch/software
 
 
 
--------------------------------------------------------
-Changes in Version 0.1   (2015-mm-dd)
--------------------------------------------------------
+----------------------------------------------------------
+Changes in Version 0.2   (2015-mm-dd)  --  CRAN 0.vv-ss
+----------------------------------------------------------
+
+ADDED * extended 'immer_reshape_wideformat' for reshaping
+        of data frame with ratings
+
+DATA  * included/modified datasets: data.immer07
+EXAMP * included/modified examples: immer_reshape_wideformat (2),
+        immer_cml (4,5)
+
+
+----------------------------------------------------------
+Changes in Version 0.1   (2015-09-13)  --  CRAN 0.1-1
+----------------------------------------------------------
 
 ADDED * included functions 'immer_HRM' and 'simulate_HRM'
         for estimating and simulating the hierarchical

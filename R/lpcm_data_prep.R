@@ -81,7 +81,7 @@ lpcm_data_prep <- function( dat , weights , a ){
 
 	# generate pararameter names
 	parnames <- paste0( pars_info$item , "_Cat" , pars_info$cat )	
-						
+	rownames(pars_info) <- parnames					
 						
 	res <- list( N=N , I=I , NP=NP , dat=dat , 
 			      patt=patt , weights=weights ,
