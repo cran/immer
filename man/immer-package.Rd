@@ -16,8 +16,8 @@ Item Response Models for Multiple Ratings
 \tabular{ll}{
 Package: \tab \pkg{immer} \cr
 Type: \tab Package\cr
-Version: \tab 0.2 \cr
-Publication Year: \tab 2015\cr
+Version: \tab 0.3 \cr
+Publication Year: \tab 2016\cr
 License: \tab GPL (>= 2)\cr
 } 
 % URL: \tab \url{https://sites.google.com/site/alexanderrobitzsch/software} \cr

@@ -86,7 +86,7 @@ immer_HRM <- function( dat , pid , rater ,
 		
 		#**********************************************
 		# Metropolis-Hastings tuning		
-		MHprop <- MHprop_hrm( MHprop , b , a , phi , theta , iter)
+		MHprop <- MHprop_hrm( MHprop , b , a , phi , theta , iter , burnin )
 		
 		
 		#********************************************
@@ -208,8 +208,8 @@ immer_HRM <- function( dat , pid , rater ,
 				
 			
 			#------- update MH parameters
-			if ( sum( MHprop$ITER_refreshing %in% it ) > 0 ){			
-					MHprop <- MHprop_refresh( MHprop )			
+			if ( sum( MHprop$ITER_refreshing %in% it ) > 0  ){			
+					MHprop <- MHprop_refresh( MHprop )
 													}			
 			
 			if ( it %% 20 == 0 ){

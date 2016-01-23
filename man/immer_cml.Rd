@@ -360,7 +360,7 @@ mod <- immer_cml( dfr1[,-1] , W=W)
 summary(mod)
 
 #############################################################################
-# EXAMPLE 5: Multi-faceted Rasch model | Estimating with a design matrix
+# EXAMPLE 5: Multi-faceted Rasch model | Estimation with a design matrix
 #############################################################################
 
 data(data.immer07)

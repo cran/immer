@@ -56,9 +56,19 @@ https://sites.google.com/site/alexanderrobitzsch/software
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
+----------------------------------------------------------
+Changes in Version 0.3   (2016-01-22)  --  CRAN 0.3-0
+----------------------------------------------------------
+
+ADDED * proposal distribution in Metropolis-Hastings steps
+        are now only updated during the burn-in phase
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
 
 ----------------------------------------------------------
-Changes in Version 0.2   (2015-mm-dd)  --  CRAN 0.vv-ss
+Changes in Version 0.2   (2015-11-04)  --  CRAN 0.2-0
 ----------------------------------------------------------
 
 ADDED * extended 'immer_reshape_wideformat' for reshaping
@@ -67,7 +77,6 @@ ADDED * extended 'immer_reshape_wideformat' for reshaping
 DATA  * included/modified datasets: data.immer07
 EXAMP * included/modified examples: immer_reshape_wideformat (2),
         immer_cml (4,5)
-
 
 ----------------------------------------------------------
 Changes in Version 0.1   (2015-09-13)  --  CRAN 0.1-1

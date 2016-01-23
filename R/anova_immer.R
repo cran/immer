@@ -41,4 +41,5 @@ anova_immer <- function( object , ... ){
 ##############################################################
 
 anova.immer_cml <- anova_immer
-anova.immer_HRM <- IRT.anova
+# anova.immer_HRM <- IRT.anova.immer_HRM
+anova.immer_HRM <- anova_immer

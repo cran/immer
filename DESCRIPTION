@@ -1,22 +1,24 @@
 Package: immer
 Type: Package
 Title: Item Response Models for Multiple Ratings
-Version: 0.2-0
-Date: 2015-11-04
-Author: Alexander Robitzsch [aut, cre], Jan Steinfeld [aut]
-Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
+Version: 0.3-0
+Date: 2016-01-22
+Author: 
+    Alexander Robitzsch [aut, cre], Jan Steinfeld [aut]
+Maintainer: 
+ Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description: 
- Implements some item response models for multiple
- ratings, including the hierarchical rater model, 
- conditional maximum likelihood estimation of linear 
- logistic partial credit model and a wrapper function
- to the commercial FACETS program.
+    Implements some item response models for multiple
+    ratings, including the hierarchical rater model, 
+    conditional maximum likelihood estimation of linear 
+    logistic partial credit model and a wrapper function
+    to the commercial FACETS program.
 Depends: R (>= 3.0-0)
-Imports: methods, stats, graphics, Rcpp, coda, CDM, sirt, psychotools
-Suggests: irr, TAM, eRm
+Imports: CDM, coda, graphics, methods, psychotools, Rcpp, sirt, stats
+Suggests: eRm, irr, TAM
 LinkingTo: Rcpp, RcppArmadillo
 License: GPL (>= 2)
-Packaged: 2015-11-04 16:25:57 UTC; robitzsch
 NeedsCompilation: yes
+Packaged: 2016-01-22 17:18:05 UTC; sunpn563
 Repository: CRAN
-Date/Publication: 2015-11-04 18:41:48
+Date/Publication: 2016-01-23 00:37:25

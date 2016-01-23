@@ -124,7 +124,7 @@ A list with following entries
 \references{
 Browne, W. J., & Draper, D. (2000). Implementation and performance issues in 
 the Bayesian and likelihood fitting of multilevel models. 
-Computational statistics, \bold{15}, 391-420.
+\emph{Computational Statistics}, \bold{15}, 391-420.
 
 Patz, R. J., Junker, B. W., Johnson, M. S., & Mariano, L. T. (2002). 
 The hierarchical rater model for rated test items and its 

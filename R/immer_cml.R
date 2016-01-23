@@ -153,6 +153,5 @@ immer_cml <- function( dat , weights=NULL , W=NULL , b_const=NULL ,
 		
 		class(res) <- "immer_cml"
 		return(res)		
-
 			}
 ########################################################

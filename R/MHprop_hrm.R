@@ -1,7 +1,7 @@
 
 
 ######################################################################
-MHprop_hrm <- function( MHprop , b , a , phi , theta , iter ){
+MHprop_hrm <- function( MHprop , b , a , phi , theta , iter , burnin ){
 
 	psi <- phi
 	MHprop <- list()
@@ -47,7 +47,10 @@ MHprop_hrm <- function( MHprop , b , a , phi , theta , iter ){
 		 l1 <- (1:iter)[l1]
 	     v1 <- c( v1 , l1 ) 
 					}
-	MHprop$ITER_refreshing <- sort( unique(v1) )
+	v2 <- sort( unique(v1) )
+	v2 <- v2[ v2 <= burnin ]
+	MHprop$ITER_refreshing <- v2
+	
 	
 	# refreshing variables
 	MHprop$VARS_refreshing <- c("b" , "phi" , "psi" , "theta") 
