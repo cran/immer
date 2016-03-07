@@ -55,6 +55,25 @@ https://sites.google.com/site/alexanderrobitzsch/software
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+----------------------------------------------------------
+Changes in Version 0.4   (2016-03-07)  --  CRAN 0.4-0
+----------------------------------------------------------
+
+NOTE  * added utility functions 'probs2logits' and 
+        'logits2probs' for conversions of probabilities 
+        and logits of probabilities
+ADDED * included a latent class for agreement of two
+        raters 'lc2_agreement'
+ADDED * added utility function 'immer_unique_patterns' for
+        extraction of unique item response patterns
+ADDED * added descriptive function 'immer_agree2' for
+        agreement among two raters (including Aicken's Alpha
+        and Gwet's AC1)
+
+DATA  * included/modified datasets: data.immer08
+EXAMP * included/modified examples: probs2logits (1),
+        lc2_agreement (1), immer_unique_patterns (1),
+        immer_agree2 (1)
 
 ----------------------------------------------------------
 Changes in Version 0.3   (2016-01-22)  --  CRAN 0.3-0
@@ -65,7 +84,6 @@ ADDED * proposal distribution in Metropolis-Hastings steps
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
-
 
 ----------------------------------------------------------
 Changes in Version 0.2   (2015-11-04)  --  CRAN 0.2-0

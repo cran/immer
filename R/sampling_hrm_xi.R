@@ -50,7 +50,7 @@ sampling_hrm_xi_item <- function( x , theta , b , a , phi , psi , K  , pid , rat
 		
 					}					
 	probs <- probs / rowSums( probs )	
-	rn <- runif(N)
+	rn <- stats::runif(N)
 	if ( ! useRcpp ){
 		probs1 <- sirt::rowCumsums.sirt(probs)
 		xi <- sirt::rowIntervalIndex.sirt(matr= probs1,rn=rn) - 1

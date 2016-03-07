@@ -50,7 +50,7 @@ loglik_HRM <- function( dat , dat_ind , est_pars , theta_like ,
 
 	#****
 	# individual posterior
-	pi.k <- dnorm( theta_like , mean=est_pars$mu , sd = est_pars$sigma )
+	pi.k <- stats::dnorm( theta_like , mean=est_pars$mu , sd = est_pars$sigma )
 	pi.k <- pi.k / sum( pi.k )
 	piM <- matrix( pi.k , nrow=N , ncol=TP , byrow=TRUE )
 	f.qk.yi <- f.yi.qk * piM

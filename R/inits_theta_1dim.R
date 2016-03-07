@@ -7,11 +7,11 @@ inits_theta_1dim <- function( dat.resp , pid , eps=.05 ){
 	I <- ncol(dat.resp)
 	K <- max(maxK)
 	# ability inits
-	theta <- aggregate( dat.resp , list(pid) , mean , na.rm=TRUE )[,-1] 
+	theta <- stats::aggregate( dat.resp , list(pid) , mean , na.rm=TRUE )[,-1] 
 	theta <- theta / matrix( maxK , nrow=N , ncol=I , byrow=TRUE )
 	theta <- rowMeans(theta , na.rm=TRUE)
 	theta <- ( theta + eps ) / ( 1 + 2*eps )
-	theta <- qlogis( theta )
+	theta <- stats::qlogis( theta )
 	return(theta)
 		}
 #####################################################################		

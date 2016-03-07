@@ -41,8 +41,8 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 								}	
 								
 				if ( ( est.psi=="a" ) | ( ii == 1 ) ){
-					p_new <- dnorm( psi_new[ii,] , mean = prior$psi$M[ii,] , sd = prior$psi$SD[ii,] ) 
-					p_old <- dnorm( psi_old[ii,] , mean = prior$psi$M[ii,] , sd = prior$psi$SD[ii,] ) 
+					p_new <- stats::dnorm( psi_new[ii,] , mean = prior$psi$M[ii,] , sd = prior$psi$SD[ii,] ) 
+					p_old <- stats::dnorm( psi_old[ii,] , mean = prior$psi$M[ii,] , sd = prior$psi$SD[ii,] ) 
 									} else {
 					p_new <- p_old <- rep(1,R)
 									}
@@ -68,7 +68,7 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 				if ( est.psi == "a"){
 					for (rr in 1:R){
 					  if( is.na(ratio[rr] ) ){ ratio[rr] <- 0 }
-						if ( ratio[rr] > runif(1) ){
+						if ( ratio[rr] > stats::runif(1) ){
 									MHprop$accept$psi[ii,rr] <- MHprop$accept$psi[ii,rr] + 1 
 									psi[ii,rr] <- psi_new[ii,rr]
 													 }
@@ -77,7 +77,7 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 				if ( est.psi == "i"){	
 				  ratio <- exp(sum( log(ratio) ))
 					  if( is.na(ratio ) ){ ratio <- 0 }
-						if ( ratio > runif(1) ){
+						if ( ratio > stats::runif(1) ){
 									MHprop$accept$psi[ii,1:R] <- MHprop$accept$psi[ii,1:R] + 1 
 									psi[ii,1:R] <- psi_new[ii,1:R]
 													 }
@@ -90,7 +90,7 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 					for (rr in 1:R){
 					  ratio[rr] <- exp(ratio1[rr])
 					  if( is.na(ratio[rr] ) ){ ratio[rr] <- 0 }
-						if ( ratio[rr] > runif(1) ){
+						if ( ratio[rr] > stats::runif(1) ){
 									MHprop$accept$psi[ii,rr] <- MHprop$accept$psi[ii,rr] + 1 
 									psi[ii,rr] <- psi_new[ii,rr]
 													 }
@@ -100,7 +100,7 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 				if ( est.psi == "e"){			
 					ratio <- exp(ratio1)
 					  if( is.na(ratio ) ){ ratio <- 0 }
-						if ( ratio > runif(1) ){
+						if ( ratio > stats::runif(1) ){
 									MHprop$accept$psi[1:I,1:R] <- MHprop$accept$psi[1:I,1:R] + 1 
 									psi[1:I,1:R] <- psi_new[1:I,1:R]
 													 }

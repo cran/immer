@@ -23,8 +23,8 @@ immer_identifiers_relabel <- function( dat , pid , rater ){
 				dfr <- data.frame( "item" = colnames(dat)[ii] , 
 				    "rater" = rater_unique , 
 					"rid" = 1:R , 
-					"N_Rat" = aggregate( 1 - is.na(dat[ , ii  ]) , list(rater ) , sum )[,2] ,
-					"M" = aggregate( dat[,ii] , list(rater ) , mean , na.rm=TRUE )[,2] 
+					"N_Rat" = stats::aggregate( 1 - is.na(dat[ , ii  ]) , list(rater ) , sum )[,2] ,
+					"M" = stats::aggregate( dat[,ii] , list(rater ) , mean , na.rm=TRUE )[,2] 
 									)
 				rater_pars0 <- rbind( rater_pars0 , dfr )
 					}

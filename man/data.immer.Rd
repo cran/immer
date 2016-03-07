@@ -9,6 +9,7 @@
 \alias{data.immer05}
 \alias{data.immer06}
 \alias{data.immer07}
+\alias{data.immer08}
 
 
 \docType{data}
@@ -34,6 +35,7 @@ data(data.immer04b)
 data(data.immer05)
 data(data.immer06)
 data(data.immer07)
+data(data.immer08)
 }
 
 
@@ -147,6 +149,17 @@ an input syntax for the FACETS program.
 \code{ $ I2   : num  0 1 1 2 1 2 1 1 2 1 ...} \cr
 \code{ $ I3   : num  1 1 2 0 0 1 1 0 2 1 ...} \cr
 \code{ $ I4   : num  0 0 1 0 0 1 0 1 2 0 ...} \cr
+
+
+
+\item The format of the dataset \code{data.immer08} is
+
+\code{'data.frame':   16 obs. of  3 variables:} \cr
+\code{ $ Facility: int  1 1 1 1 2 2 2 2 3 3 ...} \cr
+\code{ $ Research: int  1 2 3 4 1 2 3 4 1 2 ...} \cr
+\code{ $ weights : int  40 6 4 15 4 25 1 5 4 2 ...} \cr
+
+
 }
 }
 

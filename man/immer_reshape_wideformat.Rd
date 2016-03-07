@@ -6,7 +6,7 @@
 Creating a Rating Dataset in Wide Format
 }
 \description{
-Converts a rating dataset from a longformat into a wide format.
+Converts a rating dataset from a long format into a wide format.
 }
 \usage{
 immer_reshape_wideformat(y, pid, rater, Nmin_ratings = 1)
@@ -76,7 +76,7 @@ dat <- data.immer07
 #*** Dataset 1: Wide format for item I1
 dfr1 <- immer_reshape_wideformat( dat$I1 , rater = dat$rater , pid = dat$pid )
 
-#*** Dataset 2: Wide format for four items
+#*** Dataset 2: Wide format for four items I1, I2, I3 and I4
 dfr2 <- immer_reshape_wideformat( dat[, paste0("I",1:4) ] , 
               rater = dat$rater , pid = dat$pid )
 str(dfr2)

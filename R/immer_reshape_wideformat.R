@@ -12,11 +12,12 @@ immer_reshape_wideformat <- function( y , pid , rater , Nmin_ratings = 1 ){
 		NV <- ncol(y)		
 		for (vv in 1:NV){		
 			y1 <- as.vector(y[,vv])
-			dfr2 <- immer_reshape_wideformat_vector(y=y1,  pid,rater, Nmin_ratings )		
+			dfr2 <- immer_reshape_wideformat_vector(y=y1,  pid=pid,
+					rater=rater, Nmin_ratings=Nmin_ratings )		
 			colnames(dfr2)[-1] <- paste0( colnames(y)[vv] , "_" , colnames(dfr2)[-1] ) 
 			if ( vv == 1 ){ dfr1 <- dfr2 }
 			if ( vv > 1 ){
-				dfr1 <- merge( x = dfr1 , y = dfr2 , by = "pid" , all=TRUE )
+				dfr1 <- base::merge( x = dfr1 , y = dfr2 , by = "pid" , all=TRUE )
 							}
 						}
 			# dfr1 <- dfr1[ order( dfr1$pid ) , ]			

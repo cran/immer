@@ -14,16 +14,16 @@ sampling_hrm_phi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 			# ii <- 1				
 			  if ( est.phi=="a"){
 				phi_new <- phi_old <- phi
-				phi_new[ii,] <- rnorm( R , mean= phi[ii,] , sd = MHprop$SD$phi[ii,] )
+				phi_new[ii,] <- stats::rnorm( R , mean= phi[ii,] , sd = MHprop$SD$phi[ii,] )
 								}
 			  if ( ( est.phi=="r" ) & ( ii == 1 ) ){
 				phi_new <- phi_old <- phi
-				phi_new[1:I,] <- matrix( rnorm( R , mean= phi[1,] , sd = MHprop$SD$phi[1,] ) ,
+				phi_new[1:I,] <- matrix( stats::rnorm( R , mean= phi[1,] , sd = MHprop$SD$phi[1,] ) ,
 										nrow=I , ncol=R , byrow=TRUE )
 								}																								
 				if ( ( est.phi=="a" ) | ( ii == 1 ) ){
-					p_new <- dnorm( phi_new[ii,] , mean = prior$phi$M[ii,] , sd = prior$phi$SD[ii,] ) 
-					p_old <- dnorm( phi_old[ii,] , mean = prior$phi$M[ii,] , sd = prior$phi$SD[ii,] ) 
+					p_new <- stats::dnorm( phi_new[ii,] , mean = prior$phi$M[ii,] , sd = prior$phi$SD[ii,] ) 
+					p_old <- stats::dnorm( phi_old[ii,] , mean = prior$phi$M[ii,] , sd = prior$phi$SD[ii,] ) 
 									} else {
 					p_new <- p_old <- rep(1,R)
 									}
@@ -42,7 +42,7 @@ sampling_hrm_phi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 				if ( est.phi == "a" ){	
 					for (rr in 1:R){
 					  if( is.na(ratio[rr] ) ){ ratio[rr] <- 0 }
-						if ( ratio[rr] > runif(1) ){
+						if ( ratio[rr] > stats::runif(1) ){
 									MHprop$accept$phi[ii,rr] <- MHprop$accept$phi[ii,rr] + 1 
 									phi[ii,rr] <- phi_new[ii,rr]
 													 }
@@ -55,7 +55,7 @@ sampling_hrm_phi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 					for (rr in 1:R){
 					  ratio[rr] <- exp(ratio1[rr]) 
 					  if( is.na(ratio[rr] ) ){ ratio[rr] <- 0 }
-						if ( ratio[rr] > runif(1) ){
+						if ( ratio[rr] > stats::runif(1) ){
 									MHprop$accept$phi[1:I,rr] <- MHprop$accept$phi[1:I,rr] + 1 
 									phi[1:I,rr] <- phi_new[1:I,rr]
 													 }

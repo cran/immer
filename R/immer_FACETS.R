@@ -30,7 +30,7 @@ immer_FACETS <- function(
   os_system <- Sys.info()["sysname"]
   user <- Sys.info()['user']
   options(digits.secs=6)									
-  time <- format(Sys.time(),"_%y%m%d_%H%M%S%OS")
+  time <- base::format(Sys.time(),"_%y%m%d_%H%M%S%OS")
   # ------------------------------------
  if(!is.null(fileinput)){
    # Check if the specification is either NULL or a character vector

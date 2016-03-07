@@ -8,10 +8,10 @@ sampling_hrm_theta_1dim <- function( theta , N , I , maxK , a , b , xi , xi_ind 
 	MHprop$refresh_count$theta <- MHprop$refresh_count$theta + 1
 
 	theta_new <- theta_old <- theta
-	theta_new <- rnorm(N , mean= theta , sd = MHprop$SD$theta )
+	theta_new <- stats::rnorm(N , mean= theta , sd = MHprop$SD$theta )
 
-	p_new <- log( dnorm( theta_new , mean = mu_theta , sd = SD_theta ) )
-	p_old <- log( dnorm( theta_old , mean = mu_theta , sd = SD_theta ) )
+	p_new <- log( stats::dnorm( theta_new , mean = mu_theta , sd = SD_theta ) )
+	p_old <- log( stats::dnorm( theta_old , mean = mu_theta , sd = SD_theta ) )
 
 	for (ii in 1:I){
 		# ii <- 1    
@@ -26,7 +26,7 @@ sampling_hrm_theta_1dim <- function( theta , N , I , maxK , a , b , xi , xi_ind 
 					}
 					
 	ratio <- exp( p_new - p_old )    
-	zuf <- runif(N)
+	zuf <- stats::runif(N)
 
 	theta <- ifelse( ratio > zuf , theta_new , theta_old )
 	MHprop$accept$theta <- MHprop$accept$theta + 1*( ratio > zuf )

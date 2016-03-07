@@ -15,7 +15,8 @@ lpcm_inits <- function( dat , weights , maxK , b_const , W ,
 		ctot[[j]] <- as.vector(tapply(weights, factor(y[, j], levels = oj_vec[[j]]), sum))
 						 }
     start <- lapply(ctot, function(x){
-			- cumsum(diff.default(log(x))) } ) # delta_jk = log(x_j(k-1) - log(x_jk), beta_jk = cumsum_k=1^k(delta_jk)
+			- cumsum(diff.default(log(x))) } ) 
+			# delta_jk = log(x_j(k-1) - log(x_jk), beta_jk = cumsum_k=1^k(delta_jk)
     start <- unlist(start)
     start[ is.na(start) ] <- 0
 	par_init <- ( start - b_const ) %*% W

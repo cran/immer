@@ -18,7 +18,23 @@ importFrom(graphics, legend)
 importFrom(graphics, lines)
 importFrom(methods, is)
 importFrom(Rcpp, evalCpp)
-import(stats)
+importFrom(stats, aggregate)
+importFrom(stats, anova)
+importFrom(stats, coef)
+importFrom(stats, dlnorm)
+importFrom(stats, dnorm)
+importFrom(stats, logLik)
+importFrom(stats, optim)
+importFrom(stats, pchisq)
+importFrom(stats, qlogis)
+importFrom(stats, qnorm)
+importFrom(stats, rgamma)
+importFrom(stats, rlnorm)
+importFrom(stats, rnorm)
+importFrom(stats, runif)
+importFrom(stats, sd)
+importFrom(stats, var)
+importFrom(stats, vcov)
 importFrom(utils, download.file)
 importFrom(utils, flush.console)
 importFrom(utils, packageDescription)
@@ -53,13 +69,18 @@ importFrom(sirt, rowIntervalIndex.sirt)
 ################  EXPORTS ##############################
 
 export( 
-   simulate_HRM ,
-   immer_HRM ,
-   immer_reshape_wideformat,
-   immer_opcat,
+   immer_agree2,
    immer_cml,
+   immer_FACETS,   
    immer_install,
-   immer_FACETS   
+   immer_HRM,
+   immer_opcat,
+   immer_reshape_wideformat,
+   immer_unique_patterns,
+   lc2_agreement,
+   logits2probs,
+   probs2logits,
+   simulate_HRM 
 	)
 
 
@@ -68,32 +89,17 @@ export(
 
 
 
-#--- anova
+
 S3method(anova, immer_cml)
 S3method(anova, immer_HRM)
-
-#--- logLik
-S3method(logLik, immer_HRM)
-S3method(logLik, immer_cml)
-
-
-#--- plot
-S3method(plot, immer_HRM)
-
-
-#--- summary
-S3method(summary, immer_HRM)
-S3method(summary, immer_cml)
-
-
-
-#########################################################
-############### S3 METHODS IRT.xxx ######################
-
-
-#--- IRT.likelihood
+S3method(anova, lc2_agreement)
 S3method(IRT.likelihood, immer_HRM)
-
-
-#--- IRT.posterior
 S3method(IRT.posterior, immer_HRM)
+S3method(logLik, immer_cml)
+S3method(logLik, immer_HRM)
+S3method(logLik, lc2_agreement)
+S3method(plot, immer_HRM)
+S3method(summary, immer_agree2)
+S3method(summary, immer_cml)
+S3method(summary, immer_HRM)
+S3method(summary, lc2_agreement)

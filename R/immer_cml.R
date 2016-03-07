@@ -97,7 +97,7 @@ immer_cml <- function( dat , weights=NULL , W=NULL , b_const=NULL ,
 		#-----------------
 		# optim	
 	
-		opt <- optim(par = par_init , fn = cloglik, gr = agrad, method = "BFGS",
+		opt <- stats::optim(par = par_init , fn = cloglik, gr = agrad, method = "BFGS",
 					   hessian = TRUE , ... )
 		
 # cat("optim") ; a1 <- Sys.time(); print(a1-a0) ; a0 <- a1

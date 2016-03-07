@@ -214,7 +214,7 @@ immer_HRM <- function( dat , pid , rater ,
 			
 			if ( it %% 20 == 0 ){
 				cat("Iteration " , it , "\n")
-				flush.console()
+				utils::flush.console()
 							}
 			
 			}

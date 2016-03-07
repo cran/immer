@@ -86,7 +86,7 @@ if(os_system=="Windows"){
     }
     if(error_facets[[1]]==0){
       cat("unzip facets\n")  
-      unzip (destination_facets, exdir = installpath)
+      utils::unzip (destination_facets, exdir = installpath)
       cat("move facets to ",installpath,"\n") 
       # ----------------------------------------- 
     }

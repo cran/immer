@@ -10,16 +10,18 @@ sampling_hrm_b <- function( xi , xi_ind  , b , a , maxK , prior , MHprop , I ,
 #			ii <- 1
 #			kk <- 1
 			b_new <- b_old <- b
-			b_new[ii,kk] <- rnorm( 1 , mean= b_old[ii,kk] , sd = MHprop$SD$b[ii,kk] )
-			p_new <- dnorm( b_new[ii,kk] , mean = prior$b$M[ii,kk] , sd = prior$b$SD[ii,kk] ) 
-			p_old <- dnorm( b_old[ii,kk] , mean = prior$b$M[ii,kk] , sd = prior$b$SD[ii,kk] ) 	
-			ll_new <- sum( log( probs_gpcm( x = xi[,ii] , theta , b=b_new[ii,] , a=a[ii] , K=maxK[ii] , x_ind = xi_ind[,ii] ,
+			b_new[ii,kk] <- stats::rnorm( 1 , mean= b_old[ii,kk] , sd = MHprop$SD$b[ii,kk] )
+			p_new <- stats::dnorm( b_new[ii,kk] , mean = prior$b$M[ii,kk] , sd = prior$b$SD[ii,kk] ) 
+			p_old <- stats::dnorm( b_old[ii,kk] , mean = prior$b$M[ii,kk] , sd = prior$b$SD[ii,kk] ) 	
+			ll_new <- sum( log( probs_gpcm( x = xi[,ii] , theta , b=b_new[ii,] ,
+   			                a=a[ii] , K=maxK[ii] , x_ind = xi_ind[,ii] ,
 						useRcpp )  + eps) )
-			ll_old  <- sum( log( probs_gpcm( x = xi[,ii] , theta , b=b_old[ii,] , a=a[ii] , K=maxK[ii] , x_ind = xi_ind[,ii] ,
-						useRcpp )  + eps) )
+			ll_old  <- sum( log( probs_gpcm( x = xi[,ii] , theta , b=b_old[ii,] , 
+			             a=a[ii] , K=maxK[ii] , x_ind = xi_ind[,ii] ,
+						           useRcpp )  + eps) )
 			ratio <- p_new * exp( ll_new - ll_old ) / ( p_old  )
 			
-			if ( ratio > runif(1) ){
+			if ( ratio > stats::runif(1) ){
 				MHprop$accept$b[ii,kk] <- MHprop$accept$b[ii,kk] + 1 
 				b <- b_new
 								 }

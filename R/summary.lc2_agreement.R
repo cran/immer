@@ -2,7 +2,7 @@
 
 #*******************************************************
 # Summary for immer object
-summary.immer_cml <- function( object , digits=3 ,... ){
+summary.lc2_agreement <- function( object , digits=3 ,... ){
 	cat("-----------------------------------------------------------------\n")
 	d1 <- utils::packageDescription("immer")
 	cat( paste( d1$Package , " " , d1$Version , " (" , d1$Date , ")" , sep="") , "\n\n" )	
@@ -21,15 +21,12 @@ summary.immer_cml <- function( object , digits=3 ,... ){
 	
 	cat("-----------------------------------------------------------------\n")
 
-	cat( "Deviance = " , round( object$dev , 2 ) , " | " )
+	cat( "Deviance = " , round( -2*object$loglike , 2 ) , " | " )
     cat( "Log Likelihood = " , round( object$loglike , 2 ) , "\n" )	
 
-	cat( "Number of persons =" , object$N , "\n" )
-	cat( "Number of missing data patterns =" , object$NP , "\n" )			
-	cat( "Number of items =" , object$I , "\n" )				
-    cat( "Number of estimated parameters = " , object$npars , "\n" )    
+	cat( "Number of persons (sum of weights) =" , object$nobs , "\n" )
+    cat( "Number of estimated parameters = " , object$ic$np , "\n\n" )    
 
-	if (FALSE){
 		cat( "AIC  = " , round( object$ic$AIC , 2 ) , " | penalty =" , 
 				round( object$ic$AIC - object$ic$dev ,2 ) , 
 				"   | AIC = -2*LL + 2*p  \n" )   
@@ -48,20 +45,35 @@ summary.immer_cml <- function( object , digits=3 ,... ){
 		cat( "CAIC = " , round( object$ic$CAIC , 2 ) ," | penalty =" , 
 						round( object$ic$CAIC - object$ic$dev ,2 ) )
 			cat("   | CAIC = -2*LL + [log(n)+1]*p  (consistent AIC)\n\n" )  
-			}
 	
+	cat("-----------------------------------------------------------------\n")
+	cat("Likelihood Ratio Test of Model Fit \n\n")
 
 	
+	cat( "Chi Square = " , round( object$LRT_output$chisquare , 2 ) , " \n" )
+    cat( "Degrees of Freedom = " , round( object$LRT_output$df , 2 ) , "\n" )	
+	cat( "p-Value = " , round( object$LRT_output$p , 5 ) , "\n\n" )	
+	
+	cat( "Clogg's NFI = " , round( object$NFI , 3 ) , 
+	  "           |  NFI = (L0-L1)/L0 \n\n" )	
+	
 	cat("-----------------------------------------------------------------\n")
-	cat("Item-Category Parameters \n")
-	obji <- object$item
-	V <- ncol(obji)
-	for (vv in 2:V ){ obji[,vv] <- round( obji[,vv] , digits ) }
-	rownames(obji) <- NULL
-	print(obji)
-	cat("-----------------------------------------------------------------\n")
-	cat("Estimated Basis Parameters \n")
-	obji <- object$par_summary
+	cat("Model Parameters \n\n")
+	
+	obji <- paste0( "True agreement: " ,
+			"   gamma  = " , round(object$agree_true, digits=digits) )
+	cat(obji)
+	obji <- paste0( "\nChance agreement: " ,
+			" chance = " , round(object$agree_chance, digits=digits) )
+	cat(obji)
+	cat("\n\n")
+
+	obji <- paste0( "Conditional true agreement: " ,
+			" rel = " , round(object$rel_agree, digits=digits) )
+	cat(obji)
+	cat("\n\n")
+	
+	obji <- object$parmsummary
 	V <- ncol(obji)
 	for (vv in 2:V ){ obji[,vv] <- round( obji[,vv] , digits ) }
 	rownames(obji) <- NULL

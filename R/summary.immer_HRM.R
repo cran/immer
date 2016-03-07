@@ -4,7 +4,7 @@
 # Summary for immer object
 summary.immer_HRM <- function( object , digits=3 ,... ){
 	cat("-----------------------------------------------------------------\n")
-	d1 <- packageDescription("immer")
+	d1 <- utils::packageDescription("immer")
 	cat( paste( d1$Package , " " , d1$Version , " (" , d1$Date , ")" , sep="") , "\n\n" )	
 	
 	cat( object$description , "\n\n")

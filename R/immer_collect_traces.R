@@ -8,7 +8,7 @@ immer_collect_traces <- function( traces , est_settings ){
 	
 	#*** a
 	aM <- traces[[ "a" ]]
-	sd1 <- max( apply( aM , 1 , sd ) )
+	sd1 <- max( apply( aM , 1 , stats::sd ) )
 	if ( sd1 < eps ){
 		traces$a <- NULL
 					}
@@ -16,14 +16,14 @@ immer_collect_traces <- function( traces , est_settings ){
 		traces$a <- NULL
 					}									
 	#*** mu			
-	if ( sd(traces$mu) < eps ){
+	if ( stats::sd(traces$mu) < eps ){
 		traces$mu <- NULL
 					}
 	if ( ! est_settings$est.mu ){
 		traces$mu <- NULL
 					}					
 	#*** sigma			
-	if ( sd(traces$sigma) < eps ){
+	if ( stats::sd(traces$sigma) < eps ){
 		traces$sigma <- NULL
 					}
 	if ( ! est_settings$est.sigma ){
@@ -126,7 +126,7 @@ trace_array3 <- function( trace_vv , dfr0 , vv , var_vv , BB ){
 							paste0( var_vv  , "[" , hh[1] , "," , hh[2] , "]" )
 						}   )
 	colnames(av1) <- pars_vv	
-	sd_vv <- apply( av1 , 2 , sd )			
+	sd_vv <- apply( av1 , 2 , stats::sd )			
 	res0 <- list( av1 = av1 , pars_vv = pars_vv , sd_vv=sd_vv )
 	return(res0)
 			}
@@ -137,7 +137,7 @@ trace_matrix <- function( trace_vv , dfr0 , vv , var_vv , BB ){
 	av1 <- matrix( av , nrow=BB , ncol=dfr0$Npars[vv] )
 	pars_vv <- 	paste0( var_vv  , "[" , 1:dfr0$Npars[vv] ,  "]" )
 	colnames(av1) <- pars_vv	
-	sd_vv <- apply( av1 , 2 , sd )	
+	sd_vv <- apply( av1 , 2 , stats::sd )	
 	res0 <- list( av1 = av1 , pars_vv = pars_vv , sd_vv = sd_vv )
 	return(res0)
 			}	
