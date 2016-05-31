@@ -55,6 +55,19 @@ https://sites.google.com/site/alexanderrobitzsch/software
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+
+----------------------------------------------------------
+Changes in Version 0.5   (2016-05-31)  --  CRAN 0.5-0
+----------------------------------------------------------
+
+NOTE  * include reviewer rating dataset 'data.immer09'
+        (Kuhlisch et al., 2016) and standard setting ratings
+        in 'data.immer10'
+
+DATA  * included/modified datasets: data.immer09, data.immer10
+EXAMP * included/modified examples: ---
+
+
 ----------------------------------------------------------
 Changes in Version 0.4   (2016-03-07)  --  CRAN 0.4-0
 ----------------------------------------------------------

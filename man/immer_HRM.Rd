@@ -160,7 +160,7 @@ library(sirt)
 library(TAM)
 	
 #############################################################################
-# SIMULATED EXAMPLE 1: Simulated data using the "simulate_HRM" function
+# EXAMPLE 1: Simulated data using the "simulate_HRM" function
 #############################################################################
 
 # define data generating parameters

@@ -10,7 +10,8 @@
 \alias{data.immer06}
 \alias{data.immer07}
 \alias{data.immer08}
-
+\alias{data.immer09}
+\alias{data.immer10}
 
 \docType{data}
 
@@ -36,6 +37,8 @@ data(data.immer05)
 data(data.immer06)
 data(data.immer07)
 data(data.immer08)
+data(data.immer09)
+data(data.immer10)
 }
 
 
@@ -160,6 +163,15 @@ an input syntax for the FACETS program.
 \code{ $ weights : int  40 6 4 15 4 25 1 5 4 2 ...} \cr
 
 
+\item The dataset \code{data.immer09} contains reviewer ratings for
+conference papers (Kuhlisch et al., 2016):
+
+\code{'data.frame':   128 obs. of  3 variables:} \cr
+\code{ $ idpaper   : int  1 1 1 2 2 3 3 3 4 4 ...} \cr
+\code{ $ idreviewer: int  11 15 20 1 10 11 15 20 13 16 ...} \cr
+\code{ $ score     : num  7 7 7 7 7 7 7 7 7 7 ...} \cr
+
+
 }
 }
 
@@ -182,9 +194,12 @@ an input syntax for the FACETS program.
 
 
 
-%\references{
-%Bartolucci, F., Montanari, G. E., & Pandolfi, S. (2012). 
-%}
+\references{
+Kuhlisch, W., Roos, M., Rothe, J., Rudolph, J., Scheuermann, B., &
+Stoyan, D. (2016). A statistical approach to calibrating the scores of 
+biased reviewers of scientific papers.
+\emph{Metrika}, \bold{79}, 37-57.
+}
 
 
 %\examples{

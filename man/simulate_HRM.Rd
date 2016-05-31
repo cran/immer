@@ -57,7 +57,7 @@ Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-For examples see Simulated Example 1 in \code{\link{immer_HRM}}.
+For examples see Example 1 in \code{\link{immer_HRM}}.
 }
 
 %\examples{

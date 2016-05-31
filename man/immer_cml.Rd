@@ -97,7 +97,7 @@ List with following entries:
 \item{par_summary}{Summary for basis parameters}
 \item{loglike}{Value of conditional log-likelihood}
 \item{deviance}{Deviance}
-\item{result_optim}{Result from optimiztation in \code{\link[stats:optim]{stats::optim}}}
+\item{result_optim}{Result from optimization in \code{\link[stats:optim]{stats::optim}}}
 \item{W}{Used design matrix \eqn{\bold{W}}}
 \item{b_const}{Used constant vector \eqn{b_{0ih}}}
 \item{par_init}{Used initial parameters}
