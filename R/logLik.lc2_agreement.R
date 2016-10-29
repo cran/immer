@@ -6,10 +6,10 @@ logLik.lc2_agreement <- function (object, ...) {
 	# extract log-likelihood
 	out <- object$loglike
     # number of parameters
-    attr(out, "df") <- object$model_output$npars
+    base::attr(out, "df") <- object$model_output$npars
 	# extract number of observations
-    attr(out, "nobs") <- object$nobs
-    class(out) <- "logLik"
-    return(out)
+    base::attr(out, "nobs") <- object$nobs
+    base::class(out) <- "logLik"
+    base::return(out)
 }
 #################################################################

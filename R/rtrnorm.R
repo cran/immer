@@ -6,5 +6,5 @@ rtrnorm <- function( N , mean , sd , lower = rep(-Inf,N) , upper=rep(Inf,N) ){
 	t2 <- stats::pnorm( upper , mean = mean , sd = sd )
 	rn <- stats::runif( N , t1 , t2 )
 	stats::qnorm( rn , mean = mean , sd = sd )
-				}
+}
 #########################################				

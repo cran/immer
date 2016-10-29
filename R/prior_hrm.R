@@ -8,7 +8,7 @@ prior_hrm <- function( prior , b , a , phi ,est_settings ){
 	est.mu <- est_settings$est.mu
 	est.phi <- est_settings$est.phi
 	est.psi <- est_settings$est.psi
-	prior <- list()
+	prior <- base::list()
 	psi <- phi				
 	# b and a parameters	
 	prior$b$M <- 0*b
@@ -18,9 +18,9 @@ prior_hrm <- function( prior , b , a , phi ,est_settings ){
 	prior$a$M <- 0*a
 	if ( ! est.a ){
 		prior$a$SD <- 1E-6 + 0*a
-					} else {
+	} else {
 		prior$a$SD <- 5 + 0*a
-					}
+	}
 	
 	
 	# phi and psi parameters
@@ -31,39 +31,38 @@ prior_hrm <- function( prior , b , a , phi ,est_settings ){
 	if ( est.psi == "n" ){
 		prior$psi$M <- 1E-10+ 0*psi
 		prior$psi$SD <- 1E-30 +0*psi
-						}
+	}
 	
 	# distribution parameters
 	prior$mu$M <- 0
 	if ( ! est.mu ){
 		prior$mu$SD <- 1E-10
-				} else {
+	} else {
 		prior$mu$SD <- 1E5
-				}		
+	}		
 	if ( est.sigma ){
 		prior$sigma2$w0 <- .001
-					} else {
+	} else {
 		prior$sigma2$w0 <- 1E10
-					}
+	}
 	prior$sigma2$sig02 <- 1
 		
-	
 	#****************
 	# defaults from prior
-	if ( ! is.null( prior0 )){
-		L1 <- length(prior0)
+	if ( ! base::is.null( prior0 )){
+		L1 <- base::length(prior0)
 		for (vv in 1:L1){  
-		  # vv <- 1
-		  vv_label <- names(prior0)[vv]		  
-		  prior0.vv <- prior0[[vv]]		  
-		  L2 <- length( prior0[[vv]])
-		  for (zz in 1:L2){
-			  # zz <- 1
-			  zz_label <- names(prior0.vv)[[zz]]		  
-			  prior[[ vv_label ]][[ zz_label ]] <- prior0.vv[[zz]] 
-						}
-				}
-					}
-	return(prior)	
+			# vv <- 1
+			vv_label <- base::names(prior0)[vv]		  
+			prior0.vv <- prior0[[vv]]		  
+			L2 <- base::length( prior0[[vv]])
+			for (zz in 1:L2){
+				# zz <- 1
+				zz_label <- base::names(prior0.vv)[[zz]]		  
+				prior[[ vv_label ]][[ zz_label ]] <- prior0.vv[[zz]] 
+			}
+		}
 	}
+	base::return(prior)	
+}
 ##########################################################	

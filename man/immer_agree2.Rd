@@ -66,9 +66,17 @@ Alexander Robitzsch
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-%\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-%}
+\seealso{
+For more inter-rater agreement statistics see the \R packages 
+\pkg{agRee},
+\pkg{Agreement},
+\pkg{agrmt},
+\pkg{irr}, 
+\pkg{obs.agree},
+\pkg{rel}.  
+}
+
+
 \examples{
 #############################################################################
 # EXAMPLE 1: Dataset in Schuster & Smith (2006)

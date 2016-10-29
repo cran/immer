@@ -5,11 +5,11 @@ logLik.immer_HRM <- function (object, ...) {
 	# extract log-likelihood
 	out <- object$like
     # number of parameters
-    attr(out, "df") <- sum(object$ic$Npars)
+    base::attr(out, "df") <- base::sum(object$ic$Npars)
 	# extract number of observations
-    attr(out, "nobs") <- object$ic$N
-    class(out) <- "logLik"
-    return(out)
+    base::attr(out, "nobs") <- object$ic$N
+    base::class(out) <- "logLik"
+    base::return(out)
 }
 #################################################################
 
@@ -21,10 +21,10 @@ logLik.immer_cml <- function (object, ...) {
 	# extract log-likelihood
 	out <- object$loglike
     # number of parameters
-    attr(out, "df") <- sum(object$npars)
+    base::attr(out, "df") <- base::sum(object$npars)
 	# extract number of observations
-    attr(out, "nobs") <- object$N
-    class(out) <- "logLik"
-    return(out)
+    base::attr(out, "nobs") <- object$N
+    base::class(out) <- "logLik"
+    base::return(out)
 }
 #################################################################

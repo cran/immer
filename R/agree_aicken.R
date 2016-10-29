@@ -11,19 +11,19 @@ agree_aicken <- function( PAk , PBk , Pa ){
 	globconv <- 1E-5
 	while( ! conv){
 		alpha0 <- alpha
-		pet <- sum( PAH * PBH )
+		pet <- base::sum( PAH * PBH )
 		alpha <- ( Pa - pet ) / ( 1 - pet )
 		PAH <- PAk / (  ( 1 - alpha )  + alpha * PBH  / pet )
 		PBH <- PBk / (  ( 1 - alpha )  + alpha * PAH  / pet )
 		ii <- ii+1
-		diff_conv <- abs( alpha0 - alpha )
+		diff_conv <- base::abs( alpha0 - alpha )
 		if (diff_conv < globconv){ conv <- TRUE }
 		if (ii == maxiter ){ conv <- TRUE }
-			}
+	}
 	# chance agreement
 	Pe <- pet
 	# output
-	res <- list( "alpha" = alpha , "PAH" = PAH ,
-			"PBH" = PBH , "Pe" = Pe )
-	return(res)
-		}
+	res <- base::list( "alpha" = alpha , "PAH" = PAH ,
+					"PBH" = PBH , "Pe" = Pe )
+	base::return(res)
+}

@@ -52,7 +52,7 @@ The latent class model for two raters decomposes a portion of ratings
 which conform to true agreement and another portion of ratings which
 conform to a random rating of a category. Let \eqn{X_r} denote the rating of
 rater \eqn{r}, then for \eqn{ i \neq j}, it is assumed that
-\deqn{P(X_1 = i , X_2 = j) = \phi_{1i}  \phi_{2i} ( 1 - \gamma )}
+\deqn{P(X_1 = i , X_2 = j) = \phi_{1i}  \phi_{2j} ( 1 - \gamma )}
 For \eqn{i = j} it is assumed that
 \deqn{P(X_1 = i , X_2 = i) = \tau_i \gamma + \phi_{1i} \phi_{2i} ( 1 - \gamma )}
 where \eqn{\gamma} denotes the proportion of true ratings.

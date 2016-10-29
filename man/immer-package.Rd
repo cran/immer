@@ -16,7 +16,7 @@ Item Response Models for Multiple Ratings
 \tabular{ll}{
 Package: \tab \pkg{immer} \cr
 Type: \tab Package\cr
-Version: \tab 0.5 \cr
+Version: \tab 0.6 \cr
 Publication Year: \tab 2016\cr
 License: \tab GPL (>= 2)\cr
 } 

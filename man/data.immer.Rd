@@ -171,6 +171,25 @@ conference papers (Kuhlisch et al., 2016):
 \code{ $ idreviewer: int  11 15 20 1 10 11 15 20 13 16 ...} \cr
 \code{ $ score     : num  7 7 7 7 7 7 7 7 7 7 ...} \cr
 
+\item Dataset \code{data.immer10} contain standard setting
+ratings of 13 raters on 61 items.
+
+\code{'data.frame':   61 obs. of  15 variables:} \cr
+\code{ $ item    : chr  "I01" "I02" "I03" "I04" ...} \cr
+\code{ $ itemdiff: num  380 388 397 400 416 425 427 434 446 459 ...} \cr
+\code{ $ R01     : int  1 3 2 2 1 3 2 2 3 1 ...} \cr
+\code{ $ R02     : int  1 1 1 1 1 2 1 2 2 1 ...} \cr
+\code{ $ R03     : int  1 1 1 1 1 1 2 2 3 1 ...} \cr
+\code{ $ R04     : int  1 2 1 3 2 2 2 2 3 2 ...} \cr
+\code{ $ R05     : int  1 1 2 1 1 1 2 2 3 2 ...} \cr
+\code{ $ R06     : int  1 2 1 1 1 2 2 2 3 2 ...} \cr
+\code{ $ R07     : int  1 2 1 2 1 1 2 1 3 1 ...} \cr
+\code{ $ R08     : int  2 2 1 2 1 1 2 2 3 2 ...} \cr
+\code{ $ R09     : int  2 1 1 2 1 2 1 2 3 1 ...} \cr
+\code{ $ R10     : int  2 2 2 2 1 2 2 3 3 2 ...} \cr
+\code{ $ R11     : int  2 2 1 2 1 2 2 2 3 2 ...} \cr
+\code{ $ R12     : int  2 2 1 3 1 2 2 2 3 2 ...} \cr
+\code{ $ R13     : int  1 1 1 1 1 1 1 1 2 1 ...} \cr
 
 }
 }

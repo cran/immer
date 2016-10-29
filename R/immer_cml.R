@@ -7,8 +7,8 @@ immer_cml <- function( dat , weights=NULL , W=NULL , b_const=NULL ,
 		... ){
 		
 # a0 <- Sys.time()			
-		s1 <- Sys.time()
-		CALL <- match.call()
+		s1 <- base::Sys.time()
+		CALL <- base::match.call()
 		#---------------------
 		# data preparation		
 		res <- lpcm_data_prep( dat=dat , weights=weights, a = a )
@@ -25,7 +25,7 @@ immer_cml <- function( dat , weights=NULL , W=NULL , b_const=NULL ,
 		pars_info <- res$pars_info
 		maxscore <- res$maxscore
 		maxK <- res$maxK
-		K <- max(maxK)
+		K <- base::max(maxK)
 		score <- res$score
 		used_persons <- res$used_persons
 		score_freq <- res$score_freq
@@ -47,11 +47,11 @@ immer_cml <- function( dat , weights=NULL , W=NULL , b_const=NULL ,
 
 		#--------------------------
 		# initial parameters
-		if ( is.null(par_init) ){
+		if ( base::is.null(par_init) ){
 			par_init <- lpcm_inits( dat=dat , weights=weights , maxK=maxK , 
 						   b_const=b_const , W=W , irtmodel=irtmodel ,
 						   normalization=normalization)
-								}
+		}
 # cat("inits") ; a1 <- Sys.time(); print(a1-a0) ; a0 <- a1
 								
 		#---------------------------
@@ -59,40 +59,40 @@ immer_cml <- function( dat , weights=NULL , W=NULL , b_const=NULL ,
 				
 		## objective function: conditional log-likelihood
 		cloglik <- function (par) {        
-			cll <- sum( unlist( sapply( 1:NP , FUN = function(pp){
+			cll <- base::sum( base::unlist( base::sapply( 1:NP , FUN = function(pp){
 				esf_par <- W %*% par + b_const                            
 				esf_par <- esf_par[ parm_index[[pp]] , 1 ]
 				b <- esf_par
-				esf_par <- split(esf_par, splitvec[[pp]] )
+				esf_par <- base::split(esf_par, splitvec[[pp]] )
 				esf <- psychotools::elementary_symmetric_functions(
 								par = esf_par, order = 0, diff = diff)[[1]]  
-				- sum(suffstat[[pp]] * b ) - sum(score_freq[[pp]] * log(esf))
-							} )   ) )                    
-			return(-cll)
-							}
+				- base::sum(suffstat[[pp]] * b ) - base::sum(score_freq[[pp]] * base::log(esf))
+			} )   ) )                    
+			base::return(-cll)
+		}
 
 		## analytical gradient
 		agrad <- function(par){		
-			h1 <- sapply( 1:NP , FUN = function(pp){   
+			h1 <- base::sapply( 1:NP , FUN = function(pp){   
 				esf_par <- W %*% par + b_const
 				esf_par <- esf_par[ parm_index[[pp]] , 1 ]     
-				esf_par <- split(esf_par, splitvec[[pp]] )
+				esf_par <- base::split(esf_par, splitvec[[pp]] )
 				esf <- psychotools::elementary_symmetric_functions(par = esf_par, 
 						order = 1, diff = diff)
 				gamma0 <- esf[[1]]
 				gamma1 <- esf[[2]]
 				W1 <- W[ parm_index[[pp]] , , drop=FALSE ]
 				gr1 <- suffstat[[pp]] %*% W1
-				gr2 <- - colSums( ( score_freq[[pp]] * (gamma1 / gamma0))  %*% W1 )
+				gr2 <- - base::colSums( ( score_freq[[pp]] * (gamma1 / gamma0))  %*% W1 )
 				gr <- gr1 + gr2
 				gr <- gr[1,]
 				gr
-						} )
+				} )
 				if (NP>1){        
-					h1 <- rowSums(h1)           
-							}
-				return(h1)
-					}
+					h1 <- base::rowSums(h1)           
+				}
+			base::return(h1)
+		}
 
 		#-----------------
 		# optim	
@@ -109,32 +109,32 @@ immer_cml <- function( dat , weights=NULL , W=NULL , b_const=NULL ,
 		b <- W %*% par + b_const
 		b <- b[,1]
 		
-		item <- matrix( NA , nrow=I , ncol=K )
-		item[ cbind( pars_info$itemid , pars_info$cat ) ] <- b
-		colnames(item) <- paste0("Cat" , 1:K)
+		item <- base::matrix( NA , nrow=I , ncol=K )
+		item[ base::cbind( pars_info$itemid , pars_info$cat ) ] <- b
+		base::colnames(item) <- base::paste0("Cat" , 1:K)
 		item[ item == 99 ] <- NA
 		# compute item difficulty
-		itemdiff <- item[ cbind(1:I,maxK ) ] / maxK
-		M <- colSums( weights * dat , na.rm=TRUE ) / 
-					colSums( weights * ( 1 - is.na(dat) ) , na.rm=TRUE )
+		itemdiff <- item[ base::cbind(1:I,maxK ) ] / maxK
+		M <- base::colSums( weights * dat , na.rm=TRUE ) / 
+					base::colSums( weights * ( 1 - base::is.na(dat) ) , na.rm=TRUE )
 
-		item <- data.frame( "item" = colnames(dat) , 
-				sumwgt = colSums( weights * ( 1 - is.na(dat) ) , na.rm=TRUE ) ,
-				M=M , a=a ,  itemdiff=itemdiff , item )
+		item <- base::data.frame( "item" = base::colnames(dat) , 
+					sumwgt = base::colSums( weights * ( 1 - base::is.na(dat) ) , na.rm=TRUE ) ,
+					M=M , a=a ,  itemdiff=itemdiff , item )
 		
-		rownames(item) <- NULL
+		base::rownames(item) <- NULL
 
-		vcov1 <- solve(opt$hessian)
-		par_summary <- data.frame( "par" = colnames(W) , 
-				"est" = par , "se" = sqrt( diag(vcov1 )) )
+		vcov1 <- base::solve(opt$hessian)
+		par_summary <- base::data.frame( "par" = base::colnames(W) , 
+				"est" = par , "se" = base::sqrt( base::diag(vcov1 )) )
 			
 
 		
 		#----------------
 		# output
-		s2 <- Sys.time()
-		time <- list( start=s1 , end=s2 )
-		res <- list( item=item , b=b , coefficients = par , 
+		s2 <- base::Sys.time()
+		time <- base::list( start=s1 , end=s2 )
+		res <- base::list( item=item , b=b , coefficients = par , 
 				vcov= vcov1 ,
 				par_summary = par_summary , 
 				loglike = -opt$value ,
@@ -144,14 +144,12 @@ immer_cml <- function( dat , weights=NULL , W=NULL , b_const=NULL ,
 				suffstat=suffstat , score_freq=score_freq ,
 				dat=dat , used_persons=used_persons,
 				NP=NP , N=N ,I=I, maxK=maxK , K=K , 
-				npars = length( par ) , 
+				npars = base::length( par ) , 
 				pars_info=pars_info, parm_index=parm_index ,
 				item_index=item_index, score=score , time=time , CALL=CALL ,
 				description = "Conditional Maximum Likelihood Estimation"
-						)
-		
-		
-		class(res) <- "immer_cml"
-		return(res)		
-			}
+						)				
+		base::class(res) <- "immer_cml"
+		base::return(res)		
+}
 ########################################################

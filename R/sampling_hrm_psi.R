@@ -7,12 +7,12 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 		est.psi <- est_settings$est.psi
 		MHprop$refresh_count$psi <- MHprop$refresh_count$psi + 1			
 		minpsi <- .001
-		N <- nrow(xi)
+		N <- base::nrow(xi)
 		if ( est.psi == "r"){ 
-				ratio1 <- log( rep(1,R) )
+				ratio1 <- base::log( base::rep(1,R) )
 							}			
 		if ( est.psi == "e"){ 
-				ratio1 <- log( 1 )
+				ratio1 <- base::log( 1 )
 							}		
 		if ( est.psi != "n" ){
 			for (ii in 1:I){
@@ -24,7 +24,7 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 							}			
 			  if ( ( est.psi=="r" ) & ( ii == 1 ) ){
 				psi_new <- psi_old <- psi
-				psi_new[1:I,] <- matrix( rtrnorm( N=R , mean=psi[1,] , sd=MHprop$SD$psi[1,] , 
+				psi_new[1:I,] <- base::matrix( rtrnorm( N=R , mean=psi[1,] , sd=MHprop$SD$psi[1,] , 
 									lower = rep(0,R) , upper=rep(Inf,R) ) , nrow=I , ncol=R , byrow=TRUE )
 								}	
 
@@ -36,7 +36,7 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 								
 			  if ( ( est.psi=="i" )  ){
 				psi_new <- psi_old <- psi
-				psi_new[ii,] <-  rep( rtrnorm( N=1, mean=psi[ii,1] , sd=MHprop$SD$psi[ii,1] , 
+				psi_new[ii,] <-  base::rep( rtrnorm( N=1, mean=psi[ii,1] , sd=MHprop$SD$psi[ii,1] , 
 									lower = 0 , upper= Inf ) , R )
 								}	
 								
@@ -44,24 +44,24 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 					p_new <- stats::dnorm( psi_new[ii,] , mean = prior$psi$M[ii,] , sd = prior$psi$SD[ii,] ) 
 					p_old <- stats::dnorm( psi_old[ii,] , mean = prior$psi$M[ii,] , sd = prior$psi$SD[ii,] ) 
 									} else {
-					p_new <- p_old <- rep(1,R)
+					p_new <- p_old <- base::rep(1,R)
 									}
 				
 				
 				ll_new <- probs_hrm( x= dat[,ii] , xi=xi[ pid , ii ] , phi = phi[ ii , rater ] , 
 							   psi = psi_new[ii,rater ] , K=maxK[ii] , x_ind = dat_ind[,ii] , useRcpp)
-				ll_new <- rowsum( log( ll_new + eps ) , rater )[,1]
+				ll_new <- base::rowsum( base::log( ll_new + eps ) , rater )[,1]
 				ll_old <- probs_hrm( x= dat[,ii] , xi=xi[ pid , ii ] , phi = phi[ ii , rater ] , 
 							   psi = psi_old[ii,rater ] , K=maxK[ii] , x_ind = dat_ind[,ii] , useRcpp)
-				ll_old <- rowsum( log( ll_old + eps ) , rater )[,1]
-				ratio <- p_new * exp( ll_new - ll_old ) / ( p_old  )				
+				ll_old <- base::rowsum( base::log( ll_old + eps ) , rater )[,1]
+				ratio <- p_new * base::exp( ll_new - ll_old ) / ( p_old  )				
 	
 				if ( est.psi %in% c("r") ){ 
-					ratio1 <- ratio1 + log(ratio) 
+					ratio1 <- ratio1 + base::log(ratio) 
 							}				
 
 				if ( est.psi %in% c("e") ){ 
-					ratio1 <- ratio1 + sum( log(ratio) )
+					ratio1 <- ratio1 + base::sum( base::log(ratio) )
 							}				
 							
 							
@@ -75,7 +75,7 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 									}  # end rr
 							}
 				if ( est.psi == "i"){	
-				  ratio <- exp(sum( log(ratio) ))
+				  ratio <- base::exp( base::sum( base::log(ratio) ))
 					  if( is.na(ratio ) ){ ratio <- 0 }
 						if ( ratio > stats::runif(1) ){
 									MHprop$accept$psi[ii,1:R] <- MHprop$accept$psi[ii,1:R] + 1 
@@ -88,7 +88,7 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 				#------------		
 				if ( est.psi == "r"){
 					for (rr in 1:R){
-					  ratio[rr] <- exp(ratio1[rr])
+					  ratio[rr] <- base::exp(ratio1[rr])
 					  if( is.na(ratio[rr] ) ){ ratio[rr] <- 0 }
 						if ( ratio[rr] > stats::runif(1) ){
 									MHprop$accept$psi[ii,rr] <- MHprop$accept$psi[ii,rr] + 1 
@@ -98,7 +98,7 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 							} 
 
 				if ( est.psi == "e"){			
-					ratio <- exp(ratio1)
+					ratio <- base::exp(ratio1)
 					  if( is.na(ratio ) ){ ratio <- 0 }
 						if ( ratio > stats::runif(1) ){
 									MHprop$accept$psi[1:I,1:R] <- MHprop$accept$psi[1:I,1:R] + 1 
@@ -108,6 +108,6 @@ sampling_hrm_psi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 							
 				} # end est.psi != "n"
 
-		res <- list( psi = psi , MHprop = MHprop )
-        return(res)				
+		res <- base::list( psi = psi , MHprop = MHprop )
+        base::return(res)				
 					}

@@ -56,6 +56,20 @@ https://sites.google.com/site/alexanderrobitzsch/software
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
+
+----------------------------------------------------------
+Changes in Version 0.6   (2016-10-28)  --  CRAN 0.6-0
+----------------------------------------------------------
+
+FIXED * fixed a bug when saving sampled values
+        (thanks to Giang Pham)
+FIXED * fixed a bug in relabeling rater identifiers
+        (thanks to Giang Pham)
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+
 ----------------------------------------------------------
 Changes in Version 0.5   (2016-05-31)  --  CRAN 0.5-0
 ----------------------------------------------------------
@@ -66,7 +80,6 @@ NOTE  * include reviewer rating dataset 'data.immer09'
 
 DATA  * included/modified datasets: data.immer09, data.immer10
 EXAMP * included/modified examples: ---
-
 
 ----------------------------------------------------------
 Changes in Version 0.4   (2016-03-07)  --  CRAN 0.4-0
@@ -123,7 +136,7 @@ ADDED * included 'immer_opcat' for estimating integer
 ADDED * included linear logistic partial credit model in
         estimated by conditional maximum likelihood in
         'immer_cml'. This functions uses the
-        psychotools::elementary_symmetric_function function.        
+        'psychotools::elementary_symmetric_function' function.        
 ADDED * included installation function 'immer_install'
         for installing the facets program
 ADDED * included wrapper function 'immer_FACETS' to the

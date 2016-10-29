@@ -4,11 +4,11 @@
 ##############################################################
 # anova method immer_cml
 anova_immer <- function( object , ... ){
-    cl2 <- paste(match.call())[-1]
+    cl2 <- base::paste(match.call())[-1]
     if (length(list(object, ...)) != 2){ 
-        stop("anova method can only be applied for comparison of two models.\n")		
-		}
-	objects <- list(object, ...)
+        base::stop("anova method can only be applied for comparison of two models.\n")		
+	}
+	objects <- base::list(object, ...)
 	model1 <- objects[[1]]
 	model2 <- objects[[2]]
 
@@ -18,26 +18,25 @@ anova_immer <- function( object , ... ){
     model2$loglike <- model2$loglike
 	model2$Npars <- model2$npars
 	# test
-    dfr1 <- data.frame( "Model" = cl2[1] , 
+    dfr1 <- base::data.frame( "Model" = cl2[1] , 
 		"loglike" = model1$loglike , 
 		"Deviance" = -2*model1$loglike )
-    dfr1$Npars <- sum(model1$Npars)
-    dfr2 <- data.frame( "Model" = cl2[2] , 
-		"loglike" = model2$loglike , 	
-		"Deviance" = -2*model2$loglike )
-    dfr2$Npars <- sum(model2$Npars)
-    dfr <- rbind( dfr1 , dfr2 )
-    dfr <- dfr[ order( dfr$Npars ), ]
+    dfr1$Npars <- base::sum(model1$Npars)
+    dfr2 <- base::data.frame( "Model" = cl2[2] , 
+		         "loglike" = model2$loglike , "Deviance" = -2*model2$loglike )
+    dfr2$Npars <- base::sum(model2$Npars)
+    dfr <- base::rbind( dfr1 , dfr2 )
+    dfr <- dfr[ base::order( dfr$Npars ), ]
     dfr$Chisq <- NA
     dfr$df <- NA
     dfr$p <- NA
     dfr[1,"Chisq"] <- dfr[1,"Deviance"] - dfr[2,"Deviance"]
-    dfr[1,"df"] <- abs( dfr[1,"Npars"] - dfr[2,"Npars"] )
-    dfr[ 1, "p" ] <- round( 1 - stats::pchisq( dfr[1,"Chisq"] , df= dfr[1,"df"] ) , 5 )
-    for ( vv in 2:( ncol(dfr))){ dfr[,vv] <- round( dfr[,vv] , 5 ) }
-    print( dfr )
-    invisible(dfr)
-            }
+    dfr[1,"df"] <- base::abs( dfr[1,"Npars"] - dfr[2,"Npars"] )
+    dfr[ 1, "p" ] <- base::round( 1 - stats::pchisq( dfr[1,"Chisq"] , df= dfr[1,"df"] ) , 5 )
+    for ( vv in 2:( base::ncol(dfr))){ dfr[,vv] <- base::round( dfr[,vv] , 5 ) }
+    base::print( dfr )
+    base::invisible(dfr)
+}
 ##############################################################
 
 anova.immer_cml <- anova_immer
