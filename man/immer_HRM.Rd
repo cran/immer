@@ -182,7 +182,7 @@ phi <- phi - rowMeans(phi)
 # rater variability parameters
 psi <- matrix( c(.1 , .4 , .8) , nrow=I , ncol=R , byrow=TRUE )
 # simulate HRM data
-data <- simulate_HRM( theta , a , b , phi  = phi, psi = psi )
+data <- immer::simulate_HRM( theta , a , b , phi  = phi, psi = psi )
 pid <- data$pid
 rater <- data$rater
 dat <- data[ , - c(1:2) ]
@@ -191,7 +191,7 @@ dat <- data[ , - c(1:2) ]
 #*** Model 1: estimate HRM with equal item slopes
 iter <- 3000
 burnin <- 500
-mod1 <- immer_HRM( dat , pid , rater , iter=iter ,  burnin=burnin )
+mod1 <- immer::immer_HRM( dat , pid , rater , iter=iter ,  burnin=burnin )
 summary(mod1)
 plot(mod1,layout=2,ask=TRUE)
 
@@ -212,7 +212,7 @@ sirt::mcmclist2coda(mod1$mcmcobj , name = "hrm_mod1")
 
 #----------------------------------------------------------------
 #*** Model 2: estimate HRM with estimated item slopes
-mod2 <- immer_HRM( dat , pid , rater , iter=iter ,  burnin=burnin ,
+mod2 <- immer::immer_HRM( dat , pid , rater , iter=iter ,  burnin=burnin ,
             est.a=TRUE , est.sigma = FALSE)
 summary(mod2)
 plot(mod2,layout=2,ask=TRUE)	
@@ -232,7 +232,7 @@ prior$b$M[1,] <- c(-2,0,2)
 prior$b$SD <-  matrix( 10 , nrow=4 , ncol= 3 )
 prior$b$SD[1,] <- 1E-4
 # estimate model
-mod3 <- immer_HRM( dat , pid , rater , iter=iter ,  burnin=burnin , prior=prior)
+mod3 <- immer::immer_HRM( dat , pid , rater , iter=iter ,  burnin=burnin , prior=prior)
 summary(mod3)
 plot(mod3)
 
@@ -275,7 +275,7 @@ set.seed(87)
 iter <- 1000
 burnin <- 500
 # estimate model
-res <- immer_HRM( dat[ ,  paste0("k",1:5) ] , pid=dat$idstud , rater=dat$rater , 
+res <- immer::immer_HRM( dat[ ,  paste0("k",1:5) ] , pid=dat$idstud , rater=dat$rater , 
              iter=iter ,  burnin=burnin  )
 summary(res)
 plot(res , layout=1 , ask=TRUE)

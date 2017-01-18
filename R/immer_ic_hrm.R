@@ -3,18 +3,18 @@
 # information criteria
 immer_ic_hrm <- function( ic , summary.mcmcobj ){
 		ic$n <- ic$N
-		pars <- base::paste(summary.mcmcobj$parameter)		
-		vars <- base::c("mu" , "sigma" , "a" , "b" ,  "phi" , "psi")
-		VV <- base::length(vars)
+		pars <- paste(summary.mcmcobj$parameter)		
+		vars <- c("mu" , "sigma" , "a" , "b" ,  "phi" , "psi")
+		VV <- length(vars)
 		Npars <- NULL
 		for (vv in 1:VV){
 			# vv <- 1		
-			ind <- base::which( base::substring( pars , 1 , base::nchar( vars[vv] ) ) == vars[vv] )
-			Npars[ vars[vv] ] <- base::length(ind)
+			ind <- which( substring( pars , 1 , nchar( vars[vv] ) ) == vars[vv] )
+			Npars[ vars[vv] ] <- length(ind)
 						}
 		ic$Npars <- Npars
-		ic$np <- base::sum(Npars)
+		ic$np <- sum(Npars)
 		ic <- immer_IC_calc(ic)
-		base::return(ic)
+		return(ic)
 }
 ############################################################				

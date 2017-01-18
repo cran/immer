@@ -35,7 +35,7 @@ immer_FACETS(title = NULL, convergence = NULL, totalscore = NULL, facets = NULL,
   number of specified facets
   }
   \item{noncenter}{
-  specifie the non centered facet here
+  specified the non centered facet here
   }
   \item{arrange}{
   control the ordering in each table/output
@@ -149,7 +149,7 @@ phi <- phi - rowMeans(phi)
 # rater variability parameters
 psi <- matrix( c(.1 , .4 , .8) , nrow = I , ncol = R , byrow = TRUE )
 # simulate HRM data
-data <- simulate_HRM( theta , a , b , phi   =  phi, psi  =  psi )
+data <- immer::simulate_HRM( theta , a , b , phi   =  phi, psi  =  psi )
 
 # prepare data for FACETS
 data2FACETS <- function(data){
@@ -161,7 +161,7 @@ colnames(data))],gr = paste0("1-",length(items)),data[,items])
 facets_in <- data2FACETS(data)
 
 # Example of FACETS
-mod1.a <- immer_FACETS(
+mod1.a <- immer::immer_FACETS(
   title = "Example 1 with simulated data",
   convergence = NULL,
   totalscore = "YES",
@@ -190,7 +190,7 @@ mod1.a <- immer_FACETS(
 ################################ 
 data(data.immer06)
 
-mod1b <- immer_FACETS(
+mod1b <- immer::immer_FACETS(
   fileinput = data.immer06,
   path.facets  =  "C:\\\\Facets",
   model.name = "Example.SD",

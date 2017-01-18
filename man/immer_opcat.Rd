@@ -85,10 +85,10 @@ summary(mod)
 a <- mod$item$a		# extract (non-integer) item discriminations 
 
 #--- estimate integer item discriminations under different conditions
-a1 <- immer_opcat( a , hmean = 3 , min = 1 , max = 6 )
+a1 <- immer::immer_opcat( a , hmean = 3 , min = 1 , max = 6 )
 table(a1)
-a2 <- immer_opcat( a , hmean = 2 , min = 1 , max = 3 )
-a3 <- immer_opcat( a , hmean = 1.5 , min = 1 , max = 2 )
+a2 <- immer::immer_opcat( a , hmean = 2 , min = 1 , max = 3 )
+a3 <- immer::immer_opcat( a , hmean = 1.5 , min = 1 , max = 2 )
 #--- compare results
 cbind( a , a1 , a2 , a3)
 }

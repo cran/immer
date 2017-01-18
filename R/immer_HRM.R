@@ -8,9 +8,9 @@ immer_HRM <- function( dat , pid , rater ,
 				  MHprop=NULL  ,
 				  theta_like = seq( -10 , 10 , len=30) ){
 			
-		time <- base::list( "start" = Sys.time() )	
+		time <- list( "start" = Sys.time() )	
 		useRcpp <- TRUE	
-		CALL <- base::match.call()
+		CALL <- match.call()
 			
 		#************************************
 		# rater and person identifiers
@@ -27,13 +27,13 @@ immer_HRM <- function( dat , pid , rater ,
 		# inits						
 		# inits theta parameters
 		theta <- inits_theta_1dim( dat , pid , eps=.05 )							
-		N <- base::length(theta)
+		N <- length(theta)
 		
 		# parameters settings
 		 # Options are 'n' (no estimation), 'e' (set all parameters equal to each other), 
 		 # 'i' (item wise estmation), 'r' (rater wise estimation) and 
 		 # 'a' (all parameters are estimated independently from each other). 		
-		est_settings <- base::list( est.a = est.a , est.sigma = est.sigma , est.mu = est.mu ,
+		est_settings <- list( est.a = est.a , est.sigma = est.sigma , est.mu = est.mu ,
 				est.phi = est.phi , est.psi = est.psi )
 
 		 
@@ -53,35 +53,35 @@ immer_HRM <- function( dat , pid , rater ,
 		R <- res0$R
 		dat <- as.matrix(dat)
 		dat_ind <- 1 - is.na(dat)
-		xi_ind <- 1 * ( base::rowsum( 1 - is.na(dat) , pid ) > 0 )
-		ND <- base::nrow(dat)
+		xi_ind <- 1 * ( rowsum( 1 - is.na(dat) , pid ) > 0 )
+		ND <- nrow(dat)
 		
 		#*********************************************
 		# prior parameters			
 	    prior <- prior_hrm( prior , b , a , phi , est_settings )	
-		sigma <- base::sqrt( prior$sigma2$sig02 )
+		sigma <- sqrt( prior$sigma2$sig02 )
 		mu <- prior$mu$M
 		
 		#**********************************************
 		# objects for saving traces	
 
 		BB1 <- iter - burnin
-		save_list <- base::seq( burnin+1 , iter )
+		save_list <- seq( burnin+1 , iter )
 		
 		if ( N.save > BB1 ){ BB <- BB1 }
 		if ( N.save < BB1 ){
-			h1 <- base::ceiling( BB1 / N.save )
+			h1 <- ceiling( BB1 / N.save )
 			# BB <- BB1 / h1
-			save_list <- base::seq( burnin+1 , iter , h1)
-			BB <- base::length(save_list)
+			save_list <- seq( burnin+1 , iter , h1)
+			BB <- length(save_list)
 		}
-		psiM <- phiM <- base::array( NA , dim=c(I,R,BB) )	
-		bM <- base::array(NA , dim=c(I,K,BB) )
-		aM <- base::matrix( NA , nrow= I , ncol=BB )
-		sigmaM <- base::rep( NA , BB )
-		muM <- base::rep( NA , BB )
-		devM <- base::rep(NA, BB)
-		person <- base::data.frame( "pid" = pid_unique , "NSamp"=0 , "EAP" = 0 , 
+		psiM <- phiM <- array( NA , dim=c(I,R,BB) )	
+		bM <- array(NA , dim=c(I,K,BB) )
+		aM <- matrix( NA , nrow= I , ncol=BB )
+		sigmaM <- rep( NA , BB )
+		muM <- rep( NA , BB )
+		devM <- rep(NA, BB)
+		person <- data.frame( "pid" = pid_unique , "NSamp"=0 , "EAP" = 0 , 
 						"SD.EAP" = 0 )
 		
 		#**********************************************
@@ -96,15 +96,15 @@ immer_HRM <- function( dat , pid , rater ,
 		
 		eps <- 1E-20
 		eps11 <- 1E-7
-		dat <- base::as.matrix(dat)
-		dat_ind <- base::as.matrix( dat_ind )
-		maxcat <- base::max( maxK )
-		b <- base::as.matrix(b)
-		phi <- base::as.matrix(phi)
-		psi <- base::as.matrix(psi)
-		xi_ind <- base::as.matrix( xi_ind )
+		dat <- as.matrix(dat)
+		dat_ind <- as.matrix( dat_ind )
+		maxcat <- max( maxK )
+		b <- as.matrix(b)
+		phi <- as.matrix(phi)
+		psi <- as.matrix(psi)
+		xi_ind <- as.matrix( xi_ind )
 
-		for ( it in base::seq(1,iter ) ){
+		for ( it in seq(1,iter) ){
 #  a0 <- Sys.time()
 
 			#**** sample xsi
@@ -144,8 +144,8 @@ immer_HRM <- function( dat , pid , rater ,
 # cat("samp psi") ; a1 <- Sys.time(); print(a1-a0) ; a0 <- a1
 			
 			#**** sample theta
-			mu_theta <- base::rep( mu ,N)
-			SD_theta <- base::rep( sigma ,N)	
+			mu_theta <- rep( mu ,N)
+			SD_theta <- rep( sigma ,N)	
 			res0 <- sampling_hrm_theta_1dim( theta , N , I , maxK , a , b , xi , xi_ind , 
 							dat , dat_ind , pid , MHprop , mu_theta , SD_theta , useRcpp , eps=1E-20 )
 			theta <- res0$theta
@@ -156,7 +156,7 @@ immer_HRM <- function( dat , pid , rater ,
 			# sampling of mu
 			mu <- sampling_hrm_mu_1dim( theta , prior , N )
 			# sampling of sigma
-			sigma <-  base::sqrt( immer_mcmc_draw_variance( 1 , w0 =prior$sigma2$w0 , 
+			sigma <-  sqrt( immer_mcmc_draw_variance( 1 , w0 =prior$sigma2$w0 , 
 							sig02=prior$sigma2$sig02 , n=N , sig2= stats::var(theta) ) )
 
 # Revalpr("save_list")
@@ -172,7 +172,7 @@ immer_HRM <- function( dat , pid , rater ,
 				person$NSamp <- person$NSamp + 1
 				person$EAP <- person$EAP + theta
 				person$SD.EAP <- person$SD.EAP + theta^2
-				ND <- base::nrow(dat)
+				ND <- nrow(dat)
 				#***
 				# calculate deviance
 			if (FALSE){				
@@ -206,12 +206,12 @@ immer_HRM <- function( dat , pid , rater ,
 				
 			
 			#------- update MH parameters
-			if ( base::sum( MHprop$ITER_refreshing %in% it ) > 0  ){			
+			if ( sum( MHprop$ITER_refreshing %in% it ) > 0  ){			
 					MHprop <- MHprop_refresh( MHprop )
 			}			
 			
 			if ( it %% 20 == 0 ){
-				base::cat("Iteration " , it , "\n")
+				cat("Iteration " , it , "\n")
 				utils::flush.console()
 			}
 			
@@ -222,40 +222,40 @@ immer_HRM <- function( dat , pid , rater ,
 		# arrange output		
 
 		# item parameters
-		item <- base::data.frame( item0	,				    
+		item <- data.frame( item0	,				    
 						 "a" = rowMeans( aM ) 
 							)
 		for (kk in 1:K){
-			item[ , paste0("b" , kk) ] <- base::rowMeans( bM[,kk,,drop=FALSE] )
+			item[ , paste0("b" , kk) ] <- rowMeans( bM[,kk,,drop=FALSE] )
 		}
 					
 		# rater parameters
 		rater_pars <- NULL		
 		for (ii in 1:I){
 #			ii <- 1
-			dfr <- base::data.frame( 
-						"phi" = base::apply( phiM[ii,,] , 1 , base::mean , na.rm=TRUE ) ,
-						"psi" = base::apply( psiM[ii,,] , 1 , base::mean  , na.rm=TRUE ) 						
+			dfr <- data.frame( 
+						"phi" = apply( phiM[ii,,] , 1 , mean , na.rm=TRUE ) ,
+						"psi" = apply( psiM[ii,,] , 1 , mean  , na.rm=TRUE ) 						
 								)
-			rater_pars <- base::rbind( rater_pars , dfr )			
+			rater_pars <- rbind( rater_pars , dfr )			
 		}			
-		rater_pars <- base::data.frame( rater_pars0 , rater_pars )
+		rater_pars <- data.frame( rater_pars0 , rater_pars )
 		
 		# person parameters
 		person$EAP <- person$EAP / person$NSamp
-		person$SD.EAP <- base::sqrt( ( person$SD.EAP - person$NSamp * person$EAP^2  ) / 
+		person$SD.EAP <- sqrt( ( person$SD.EAP - person$NSamp * person$EAP^2  ) / 
 		                        person$NSamp  )
 		
 		# EAP reliability
 		EAP.rel <- stats::var( person$EAP ) / 
-		                ( stats::var( person$EAP ) + base::mean( person$SD.EAP^2 ) )
+		                ( stats::var( person$EAP ) + mean( person$SD.EAP^2 ) )
 		
 		# information criteria
-		ic <- base::list( N=N , I=I , R=R , ND = nrow(dat) , maxK=maxK , K = K )		
-		time$end <- base::Sys.time()		
+		ic <- list( N=N , I=I , R=R , ND = nrow(dat) , maxK=maxK , K = K )		
+		time$end <- Sys.time()		
 		
 		# list with all traces
-		traces <- base::list( b = bM , a = aM , phi=phiM , psi=psiM , mu=muM , 
+		traces <- list( b = bM , a = aM , phi=phiM , psi=psiM , mu=muM , 
 							sigma=sigmaM , deviance = devM )
 		# attr( traces , "NSamples" ) <- iter - burnin
 		attr( traces , "NSamples" ) <- BB
@@ -268,20 +268,20 @@ immer_HRM <- function( dat , pid , rater ,
 		
 		#******
 		# extract estimated parameters
-		est_pars <- base::list()
+		est_pars <- list()
 		est_pars$a <- item$a
-		est_pars$b <- item[ , base::paste0("b" , seq(1,K) ) ]
-		items <- base::paste0( item$item )
-		phi <- base::matrix( NA , nrow=I , ncol=R)
-		base::rownames(phi) <- items
+		est_pars$b <- item[ , paste0("b" , seq(1,K) ) ]
+		items <- paste0( item$item )
+		phi <- matrix( NA , nrow=I , ncol=R)
+		rownames(phi) <- items
 		psi <- phi
-		item_index <- base::match( base::paste(rater_pars$item) , items )
-		phi[ base::cbind( item_index , rater_pars$rid ) ] <- rater_pars$phi
-		psi[ base::cbind( item_index , rater_pars$rid ) ] <- rater_pars$psi
+		item_index <- match( paste(rater_pars$item) , items )
+		phi[ cbind( item_index , rater_pars$rid ) ] <- rater_pars$phi
+		psi[ cbind( item_index , rater_pars$rid ) ] <- rater_pars$psi
 		est_pars$phi <- phi
 		est_pars$psi <- psi
-		est_pars$mu <- base::mean(muM)
-		est_pars$sigma <- base::mean(sigmaM)		
+		est_pars$mu <- mean(muM)
+		est_pars$sigma <- mean(sigmaM)		
 				
 		#****
 		# compute likelihood and posterior
@@ -295,7 +295,7 @@ immer_HRM <- function( dat , pid , rater ,
 			
 		#*****
 		# output list
-		res <- base::list( person = person , item = item , rater_pars = rater_pars , 
+		res <- list( person = person , item = item , rater_pars = rater_pars , 
 						est_pars = est_pars , 
 						sigma = est_pars$sigma , mu = est_pars$mu , 
 						mcmcobj = res11$mcmcobj , summary.mcmcobj=summary.mcmcobj , 
@@ -309,7 +309,7 @@ immer_HRM <- function( dat , pid , rater ,
 						N.save = BB , 
 						iter = iter , burnin=burnin , time=time , CALL = CALL)
 		res$description <- "Function 'immer_HRM' | Hierarchical Rater Model (Patz et al., 2002)" 					
-		base::class(res) <- "immer_HRM"
-		base::return(res)				
+		class(res) <- "immer_HRM"
+		return(res)				
 }
 #############################################################################			

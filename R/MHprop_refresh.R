@@ -1,7 +1,7 @@
 
 MHprop_refresh <- function( MHprop ){
 		vars <- MHprop$VARS_refreshing
-		V <- base::length(vars)		
+		V <- length(vars)		
 		for (vv in 1:V){
 			# vv <- 1
 			var.vv <- vars[vv]
@@ -14,7 +14,7 @@ MHprop_refresh <- function( MHprop ){
 			MHprop$accept[[ var.vv ]] <- 0*MHprop$accept[[var.vv]]
 			MHprop$refresh_count[[var.vv]] <- 0				
 		}						
-		base::return(MHprop)
+		return(MHprop)
 }
 
 
@@ -22,37 +22,37 @@ MHprop_refresh <- function( MHprop ){
 MHprop_refresh_parstype <- function( accept , SD , MHprop , SDchange ){
     #***********************************
 	# vector
-	if ( base::is.vector(accept) ){
+	if ( is.vector(accept) ){
 		SD <- MHprop_refresh_pars( acc =accept , SD.pp=SD , MHprop ,
 										SDchange )
 	}
     #***********************************
 	# matrix
-	if ( base::is.matrix(accept) ){
-		NP <- base::ncol(accept)
+	if ( is.matrix(accept) ){
+		NP <- ncol(accept)
 		for (pp in 1:NP){
 			SD[,pp] <- MHprop_refresh_pars( acc =accept[,pp] , SD.pp=SD[,pp] , MHprop ,
 										SDchange )
 		}
 	}
     #***********************************						
-	base::return(SD)	
+	return(SD)	
 }			
 ##################################################################################
 
 ##################################################################################							
 MHprop_refresh_pars <- function( acc , SD.pp , MHprop , SDchange ){
-		target <- base::mean( MHprop$accept_bounds )
+		target <- mean( MHprop$accept_bounds )
 		if (MHprop$refresh_formula){
-			SD.pp <- base::ifelse( acc < MHprop$accept_bounds[1] ,
+			SD.pp <- ifelse( acc < MHprop$accept_bounds[1] ,
 						SD.pp / ( 2 - acc / target ) , SD.pp )	
-			SD.pp <- base::ifelse( acc > MHprop$accept_bounds[2] ,
+			SD.pp <- ifelse( acc > MHprop$accept_bounds[2] ,
 						SD.pp * ( 2 - (1-acc)/(1-target) ) , SD.pp )	
 		} else {						
-			SD.pp <- base::ifelse( acc < MHprop$accept_bounds[1] , SD.pp - SDchange  , SD.pp )
-			SD.pp <- base::ifelse( acc > MHprop$accept_bounds[2] , SD.pp + SDchange  , SD.pp )
-			SD.pp <- base::ifelse( SD.pp < SDchange , SDchange , SD.pp )
+			SD.pp <- ifelse( acc < MHprop$accept_bounds[1] , SD.pp - SDchange  , SD.pp )
+			SD.pp <- ifelse( acc > MHprop$accept_bounds[2] , SD.pp + SDchange  , SD.pp )
+			SD.pp <- ifelse( SD.pp < SDchange , SDchange , SD.pp )
 		}
-		base::return(SD.pp)
+		return(SD.pp)
 }
 ##################################################################################					

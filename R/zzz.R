@@ -6,15 +6,15 @@
 .onAttach <- function(libname,pkgname){
   d <- utils::packageDescription("immer")
   d1 <- d$Version
-  base::packageStartupMessage(
-		base::paste("* " ,d$Package," " , d1 ," (",d$Date,")",sep="")  )
+  packageStartupMessage(
+		paste("* " ,d$Package," " , d1 ," (",d$Date,")",sep="")  )
 	}
 	
 	
 version <- function(pkg="immer"){
-  lib <- base::dirname(system.file(package = pkg))
+  lib <- dirname(system.file(package = pkg))
   d <- utils::packageDescription(pkg)
-  base::return( base::paste(d$Package,d$Version,d$Date,lib) )
+  return( paste(d$Package,d$Version,d$Date,lib) )
 }
 
 # .First.lib <- function(lib, pkg){

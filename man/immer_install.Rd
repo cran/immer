@@ -62,7 +62,7 @@ Install FACDOS and DOSBox \code{\link{immer_FACETS}}.
 
 \examples{
 \dontrun{	
-    immer_install( DosBox_path = NULL, Facets_path = NULL )
+    immer::immer_install( DosBox_path = NULL, Facets_path = NULL )
   }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

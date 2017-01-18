@@ -60,9 +60,9 @@ probs <- c( .3 , .25 , .25  , .2)
 sum(probs)
 
 # convert probabilities into logits
-y <- probs2logits( probs )
+y <- immer::probs2logits( probs )
 # retransform logits into probabilities
-logits2probs(y)
+immer::logits2probs(y)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

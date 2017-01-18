@@ -56,7 +56,7 @@ data( data.read , package="sirt")
 dat <- data.read
 
 # extract item response patterns
-res <- immer_unique_patterns( dat)
+res <- immer::immer_unique_patterns( dat)
 
 \dontrun{
 # back-conversion with expand.table

@@ -88,7 +88,7 @@ dat <- data.immer08
 y <- dat[,1:2]
 w <- dat[,3]
 # agreement statistics
-res <- immer_agree2( y = y , w = w )
+res <- immer::immer_agree2( y = y , w = w )
 summary(res)
 # extract some output values
 res$agree_stats

@@ -8,7 +8,7 @@ prior_hrm <- function( prior , b , a , phi ,est_settings ){
 	est.mu <- est_settings$est.mu
 	est.phi <- est_settings$est.phi
 	est.psi <- est_settings$est.psi
-	prior <- base::list()
+	prior <- list()
 	psi <- phi				
 	# b and a parameters	
 	prior$b$M <- 0*b
@@ -49,20 +49,20 @@ prior_hrm <- function( prior , b , a , phi ,est_settings ){
 		
 	#****************
 	# defaults from prior
-	if ( ! base::is.null( prior0 )){
-		L1 <- base::length(prior0)
+	if ( ! is.null( prior0 )){
+		L1 <- length(prior0)
 		for (vv in 1:L1){  
 			# vv <- 1
-			vv_label <- base::names(prior0)[vv]		  
+			vv_label <- names(prior0)[vv]		  
 			prior0.vv <- prior0[[vv]]		  
-			L2 <- base::length( prior0[[vv]])
+			L2 <- length( prior0[[vv]])
 			for (zz in 1:L2){
 				# zz <- 1
-				zz_label <- base::names(prior0.vv)[[zz]]		  
+				zz_label <- names(prior0.vv)[[zz]]		  
 				prior[[ vv_label ]][[ zz_label ]] <- prior0.vv[[zz]] 
 			}
 		}
 	}
-	base::return(prior)	
+	return(prior)	
 }
 ##########################################################	

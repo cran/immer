@@ -5,12 +5,12 @@ immer_IC_calc <- function(ic){
 		# AIC3
 		ic$AIC3 <- ic$dev + 3*ic$np		
         # BIC
-        ic$BIC <- ic$dev + ( base::log(ic$n) )*ic$np
+        ic$BIC <- ic$dev + ( log(ic$n) )*ic$np
 		# adjusted BIC 
-		ic$aBIC <- ic$dev + ( base::log( ( ic$n -2 ) / 24 ) )*ic$np
+		ic$aBIC <- ic$dev + ( log( ( ic$n -2 ) / 24 ) )*ic$np
         # CAIC (consistent AIC)
-        ic$CAIC <- ic$dev + ( base::log(ic$n) + 1 )*ic$np
+        ic$CAIC <- ic$dev + ( log(ic$n) + 1 )*ic$np
 		# corrected AIC
         ic$AICc <- ic$AIC + 2*ic$np * ( ic$np + 1 ) / ( ic$n - ic$np - 1 )	
-		base::return(ic)
+		return(ic)
 }

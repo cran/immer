@@ -68,26 +68,23 @@ importFrom(sirt, rowIntervalIndex.sirt)
 ########################################################
 ################  EXPORTS ##############################
 
-export( 
-   immer_agree2,
-   immer_cml,
-   immer_FACETS,   
-   immer_install,
-   immer_HRM,
-   immer_opcat,
-   immer_reshape_wideformat,
-   immer_unique_patterns,
-   lc2_agreement,
-   logits2probs,
-   probs2logits,
-   simulate_HRM 
-	)
+export(immer_agree2)
+export(immer_cml)
+export(immer_FACETS)  
+export(immer_install)
+export(immer_HRM)
+export(immer_opcat)
+export(immer_reshape_wideformat)
+export(immer_unique_patterns)
+export(lc2_agreement)
+export(logits2probs)
+export(probs2logits)
+export(simulate_HRM)
+
 
 
 #########################################################
 ############### S3 METHODS ##############################
-
-
 
 
 S3method(anova, immer_cml)

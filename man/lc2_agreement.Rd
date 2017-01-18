@@ -117,20 +117,20 @@ y <- dat[,1:2]
 w <- dat[,3]
 
 #*** Model 1: Uniform distribution phi parameters
-mod1 <- lc2_agreement( y = y , w = w , type="unif")
+mod1 <- immer::lc2_agreement( y = y , w = w , type="unif")
 summary(mod1)
 
 #*** Model 2: Equal phi and tau parameters
-mod2 <- lc2_agreement( y = y , w = w , type="equal")
+mod2 <- immer::lc2_agreement( y = y , w = w , type="equal")
 summary(mod2)
 
 \dontrun{
 #*** Model 3: Homogeneous rater model
-mod3 <- lc2_agreement( y = y , w = w , type="homo")
+mod3 <- immer::lc2_agreement( y = y , w = w , type="homo")
 summary(mod3)
 
 #*** Model 4: Heterogeneous rater model
-mod4 <- lc2_agreement( y = y , w = w , type="hete")
+mod4 <- immer::lc2_agreement( y = y , w = w , type="hete")
 summary(mod4)
 
 #--- some model comparisons

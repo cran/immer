@@ -56,6 +56,14 @@ https://sites.google.com/site/alexanderrobitzsch/software
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
+----------------------------------------------------------
+Changes in Version 0.7   (2017-01-18)  --  CRAN 0.7-0
+----------------------------------------------------------
+
+NOTE  * changed internal structure of Rcpp functions
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
 
 ----------------------------------------------------------
 Changes in Version 0.6   (2016-10-28)  --  CRAN 0.6-0

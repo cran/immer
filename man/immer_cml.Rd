@@ -163,6 +163,9 @@ credit model in the \pkg{eRm} package for CML implementations.
 
 The \code{immer_cml} function makes use of
 \code{\link[psychotools:elementary_symmetric_functions]{psychotools::elementary_symmetric_functions}}.
+
+For CML estimation with sample weights see also the 
+\pkg{RM.weights} package.
 }
 
 
@@ -183,7 +186,7 @@ I <- ncol(dat)
 
 #----------------------------------------------------------------
 #--- Model 1: Rasch model, setting first item difficulty to zero
-mod1a <- immer_cml( dat=dat)
+mod1a <- immer::immer_cml( dat=dat)
 summary(mod1a)
 logLik(mod1a) # extract log likelihood
 coef(mod1a)   # extract coefficients
@@ -204,7 +207,7 @@ cbind( coef(mod1a) , coef(mod1b) , mod1c$etapar )
 
 #----------------------------------------------------------------
 #-- Model 2: Rasch model sum normalization
-mod2a <- immer_cml( dat=dat , normalization = "sum")
+mod2a <- immer::immer_cml( dat=dat , normalization = "sum")
 summary(mod2a)
 
 # compare estimation in TAM
@@ -224,7 +227,7 @@ W <- matrix( 0 , nrow=12 , ncol=9)
 W[ cbind( setdiff( 1:12 , fix_items ) , 1:9 ) ] <- 1
 colnames(W) <- colnames(dat)[ - fix_items ]
 # estimate model
-mod3 <- immer_cml( dat=dat , W=W , b_const=b_const)
+mod3 <- immer::immer_cml( dat=dat , W=W , b_const=b_const)
 summary(mod3)
 
 #----------------------------------------------------------------
@@ -235,9 +238,9 @@ mod4a <- sirt::rasch.mml2( dat , est.a = 1:I )
 summary(mod4a)
 a <- mod4a$item$a     # extract (non-integer) item discriminations 
 # estimate integer item discriminations ranging from 1 to 3
-a_integer <- immer_opcat( a , hmean = 2 , min = 1 , max = 3 )
+a_integer <- immer::immer_opcat( a , hmean = 2 , min = 1 , max = 3 )
 # estimate one-parameter model with fixed integer item discriminations
-mod4 <- immer_cml( dat=dat , a = a_integer )
+mod4 <- immer::immer_cml( dat=dat , a = a_integer )
 summary(mod4)
 
 #----------------------------------------------------------------
@@ -254,7 +257,7 @@ W[ c(3,7,11) , "Pos3" ] <- 1
 W[ c(4,8,12) , "Pos4" ] <- 1
 
 # estimation with immer_cml
-mod5a <- immer_cml( dat , W=W )
+mod5a <- immer::immer_cml( dat , W=W )
 summary(mod5a)
 
 # estimation in eRm package
@@ -277,7 +280,7 @@ dat <- dat[ rowSums( 1 - is.na(dat) ) > 1 , ]
 
 #----------------------------------------------------------------
 #--- Model 1: Partial credit model with constraint on first parameter
-mod1a <- immer_cml( dat= dat )
+mod1a <- immer::immer_cml( dat= dat )
 summary(mod1a)
 # compare pcmodel function from psychotools package
 mod1b <- psychotools::pcmodel( dat )
@@ -289,7 +292,7 @@ summary(mod1c)
 
 #----------------------------------------------------------------
 #-- Model 2: Partial credit model with sum constraint on item difficulties
-mod2a <- immer_cml( dat=dat , irtmodel="PCM2" , normalization="sum")
+mod2a <- immer::immer_cml( dat=dat , irtmodel="PCM2" , normalization="sum")
 summary(mod2a)
 # compare with estimation in TAM
 mod2b <- TAM::tam.mml( dat , irtmodel="PCM2" , constraint="items")
@@ -297,7 +300,7 @@ summary(mod2b)
 
 #----------------------------------------------------------------
 #-- Model 3: Partial credit model with fixed integer item discriminations
-mod3 <- immer_cml( dat= dat , normalization="first", a=c(2,2,1,3,1) )
+mod3 <- immer::immer_cml( dat= dat , normalization="first", a=c(2,2,1,3,1) )
 summary(mod3)
 
 #############################################################################
@@ -324,7 +327,7 @@ W[ 3:10 , 1 ] <- pi2$cat[ 3:10 ]
 W[ 11:13 , 2] <- 1
 
 # estimate model with design matrix W
-mod <- immer_cml( dat, W=W)
+mod <- immer::immer_cml( dat, W=W)
 summary(mod)
 
 #############################################################################
@@ -335,7 +338,7 @@ data(data.immer07)
 dat <- data.immer07
 
 #*** reshape dataset for one variable
-dfr1 <- immer_reshape_wideformat( dat$I1 , rater = dat$rater , pid = dat$pid )
+dfr1 <- immer::immer_reshape_wideformat( dat$I1 , rater = dat$rater , pid = dat$pid )
 
 #-- extract structure of design matrix
 res <- immer:::lpcm_data_prep( dat=dfr1[,-1] , weights=NULL , a=NULL)
@@ -356,7 +359,7 @@ W[ paste(pars_info$item) == "R3" , c("R1","R2") ] <- -1
 W <- W[,-1]
 
 # estimate model
-mod <- immer_cml( dfr1[,-1] , W=W)
+mod <- immer::immer_cml( dfr1[,-1] , W=W)
 summary(mod)
 
 #############################################################################
@@ -367,7 +370,7 @@ data(data.immer07)
 dat <- data.immer07
 
 #*** reshape dataset
-dfr1 <- immer_reshape_wideformat( dat[, paste0("I",1:4) ] , rater = dat$rater , 
+dfr1 <- immer::immer_reshape_wideformat( dat[, paste0("I",1:4) ] , rater = dat$rater , 
                 pid = dat$pid )
 
 #-- structure of design matrix
@@ -399,7 +402,7 @@ ind <- grep( "R3" , parnames )
 W[ ind  , c("R1","R2") ] <- -pars_info$cat[ind ]
 
 #--- estimate model with immer_cml
-mod1 <- immer_cml( dfr1[,-1] , W=W , par_init = rep(0,ncol(W) ) )
+mod1 <- immer::immer_cml( dfr1[,-1] , W=W , par_init = rep(0,ncol(W) ) )
 summary(mod1)
 
 #--- comparison with estimation in TAM
