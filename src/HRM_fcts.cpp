@@ -87,7 +87,6 @@ Rcpp::NumericVector subimmer_probs_gpcm_rcpp( Rcpp::NumericVector x ,
 //
 // subimmer_probs_hrm_rcpp
 // [[Rcpp::export]]
-
 Rcpp::NumericVector subimmer_probs_hrm_rcpp( Rcpp::NumericVector x ,        
     Rcpp::NumericVector xi ,  Rcpp::NumericVector phi ,
     Rcpp::NumericVector psi ,  int K  ,
@@ -345,7 +344,6 @@ Rcpp::NumericVector sample_prob_index( Rcpp::NumericMatrix probs, Rcpp::NumericV
 ///***************************************************
 /// probs_gpcm_testlet_rcpp
 // [[Rcpp::export]]
-
 Rcpp::NumericVector probs_gpcm_testlet_rcpp( Rcpp::NumericVector x, 
         Rcpp::NumericVector theta, Rcpp::NumericVector u, 
 	    Rcpp::NumericVector b, Rcpp::NumericVector a, int K, 
@@ -383,7 +381,7 @@ Rcpp::NumericVector probs_gpcm_testlet_rcpp( Rcpp::NumericVector x,
      // OUTPUT              
      return( probs );  
 }
-
+///***************************************************
 
 
  

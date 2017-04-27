@@ -1,4 +1,4 @@
-b22cb653e58d59d4f4e938800a0f4f7d *DESCRIPTION
+0b9e8b0f6e963b6c28e626c7007d022d *DESCRIPTION
 0f1ee2ad480e6c3f3d85f1ee3e0888ed *NAMESPACE
 32238690e90626d3cf90cd1e57e6c257 *R/IRT.likelihood.immer_HRM.R
 ada59171fc742ac7801ef275b044beb0 *R/MHprop_hrm.R
@@ -64,11 +64,11 @@ c376247ae7085168d0d275119fcb5687 *data/data.immer04b.rda
 fb9071e1112feb708bc470f41449c271 *data/data.immer08.rda
 b9910f01b584ace1c465fdbcdc9e9b21 *data/data.immer09.rda
 c994268ffe0500628cc520356c2ff9a0 *data/data.immer10.rda
-5575c51718747f8b8c7a298a1489ee9c *inst/NEWS
+7bac4d5fa3ca9dc4cbc7f86f154a47e6 *inst/NEWS
 fe5eb5e02219c38d4b4f6a91f7604274 *man/data.immer.Rd
-cc999b8ce347f6548e7e70d6e2546362 *man/immer-package.Rd
+f5d6500c6acd2511d77b485a5c58454b *man/immer-package.Rd
 21759f1b399c6fea337a8750fa3f482f *man/immer_FACETS.Rd
-e9fb8bb0e65387850f8a4bfc215f52a4 *man/immer_HRM.Rd
+0b53e9256f006c57123c60714b022037 *man/immer_HRM.Rd
 b272825e18080786837bc378011af057 *man/immer_agree2.Rd
 2d6ee427d9f2ddada7432dea65bad42d *man/immer_cml.Rd
 50e662def7e6589a8485bfa9780c32d1 *man/immer_install.Rd
@@ -78,7 +78,8 @@ faad8a7b5aaf95bb85625feed97c5cc8 *man/immer_unique_patterns.Rd
 7878eab89642b09a3331e7db443033f1 *man/lc2_agreement.Rd
 cb756c8dd1d1d4f1fea20ea3b8723833 *man/probs2logits.Rd
 e08868ef7727185dc1db80ca069a4fa8 *man/simulate_HRM.Rd
-4bc640998b3de8451bba3d730b950f9a *src/HRM_fcts.cpp
+738677fed019c3236e51514944fcc1de *src/HRM_fcts.cpp
 489b262d4f81136a32f0bb09936fe53e *src/Makevars
 a73031cbe7d6aaf0bd22e20f6526977d *src/Makevars.win
 c890c9368219f35ce1520d047532f8e8 *src/RcppExports.cpp
+473c7542cf681fe8c5a495be61065f99 *src/init.c

@@ -170,14 +170,14 @@ I <- 4    # number of items
 R <- 3    # number of raters
 K <- 3    # maximum score 
 sigma <- 2  # standard deviation
-theta <- rnorm( N , sd=sigma )  # abilities
+theta <- stats::rnorm( N , sd=sigma )  # abilities
 # item intercepts
 b <- outer( seq( -1.5 , 1.5 , len=I) , seq( -2 , 2 , len=K)  , "+" )
 # item loadings
 a <- rep(1,I)
 # rater severity parameters
 phi <- matrix( c(-.3 , -.2 , .5) , nrow=I , ncol=R , byrow=TRUE )
-phi <- phi + rnorm( phi  , sd = .3 )
+phi <- phi + stats::rnorm( phi  , sd = .3 )
 phi <- phi - rowMeans(phi)
 # rater variability parameters
 psi <- matrix( c(.1 , .4 , .8) , nrow=I , ncol=R , byrow=TRUE )
@@ -232,7 +232,7 @@ prior$b$M[1,] <- c(-2,0,2)
 prior$b$SD <-  matrix( 10 , nrow=4 , ncol= 3 )
 prior$b$SD[1,] <- 1E-4
 # estimate model
-mod3 <- immer::immer_HRM( dat , pid , rater , iter=iter ,  burnin=burnin , prior=prior)
+mod3 <- immer::immer_HRM( dat, pid, rater, iter=iter,  burnin=burnin, prior=prior)
 summary(mod3)
 plot(mod3)
 

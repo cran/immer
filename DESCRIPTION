@@ -1,8 +1,8 @@
 Package: immer
 Type: Package
 Title: Item Response Models for Multiple Ratings
-Version: 0.7-0
-Date: 2017-01-18
+Version: 0.8-5
+Date: 2017-04-27 11:34:27
 Author: 
     Alexander Robitzsch [aut, cre], Jan Steinfeld [aut]
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
@@ -18,6 +18,6 @@ Suggests: eRm, irr, TAM
 LinkingTo: Rcpp, RcppArmadillo
 License: GPL (>= 2)
 NeedsCompilation: yes
-Packaged: 2017-01-18 18:37:23 UTC; sunpn563
+Packaged: 2017-04-27 09:34:37 UTC; sunpn563
 Repository: CRAN
-Date/Publication: 2017-01-18 23:57:09
+Date/Publication: 2017-04-27 10:19:26 UTC

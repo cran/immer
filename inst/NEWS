@@ -56,6 +56,17 @@ https://sites.google.com/site/alexanderrobitzsch/software
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
+
+------------------------------------------------------------
+VERSIONS immer 0.8  |  2017-04-27  |  Last: immer 0.8-5
+------------------------------------------------------------
+
+ADDED * included registration of native routines and disabling
+        symbol search according to CRAN policies
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
 ----------------------------------------------------------
 Changes in Version 0.7   (2017-01-18)  --  CRAN 0.7-0
 ----------------------------------------------------------

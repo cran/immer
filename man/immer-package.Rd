@@ -13,13 +13,7 @@ Item Response Models for Multiple Ratings
  to the commercial FACETS program.
 }
 \details{
-\tabular{ll}{
-Package: \tab \pkg{immer} \cr
-Type: \tab Package\cr
-Version: \tab 0.7 \cr
-Publication Year: \tab 2017\cr
-License: \tab GPL (>= 2)\cr
-} 
+
 % URL: \tab \url{https://sites.google.com/site/alexanderrobitzsch/software} \cr
 
 The \pkg{immer} package has following features: 
