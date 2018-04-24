@@ -1,3 +1,6 @@
+%% File Name: data.immer.Rd
+%% File Version: 0.25
+
 \name{data.immer}
 
 \alias{data.immer01a}
@@ -217,7 +220,7 @@ ratings of 13 raters on 61 items.
 Kuhlisch, W., Roos, M., Rothe, J., Rudolph, J., Scheuermann, B., &
 Stoyan, D. (2016). A statistical approach to calibrating the scores of 
 biased reviewers of scientific papers.
-\emph{Metrika}, \bold{79}, 37-57.
+\emph{Metrika, 79}, 37-57.
 }
 
 

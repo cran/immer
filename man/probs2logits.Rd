@@ -1,3 +1,6 @@
+%% File Name: probs2logits.Rd
+%% File Version: 0.07
+
 \name{probs2logits}
 \alias{probs2logits}
 \alias{logits2probs}
@@ -35,9 +38,6 @@ A vector with logits or probabilities
 %% ~put references to the literature/web site here ~
 %}
 
-\author{
-Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
-}
 
 %\note{
 %%  ~~further notes~~

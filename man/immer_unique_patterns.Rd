@@ -1,3 +1,6 @@
+%% File Name: immer_unique_patterns.Rd
+%% File Version: 0.06
+
 \name{immer_unique_patterns}
 \alias{immer_unique_patterns}
 %- Also NEED an '\alias' for EACH other topic documented here.
@@ -33,9 +36,7 @@ A list with entries
 %\references{
 %% ~put references to the literature/web site here ~
 %}
-\author{
-Alexander Robitzsch
-}
+
 %\note{
 %%  ~~further notes~~
 %}

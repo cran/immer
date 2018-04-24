@@ -1,7 +1,10 @@
+## File Name: agree_aicken.R
+## File Version: 0.05
 
 #################################
 # algorithm for Aicken's statistic
-agree_aicken <- function( PAk , PBk , Pa ){
+agree_aicken <- function( PAk , PBk , Pa )
+{
 	PAH <- PAk
 	PBH <- PBk
 	alpha <- .5

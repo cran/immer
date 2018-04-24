@@ -1,3 +1,5 @@
+## File Name: inits_raterpars_hrm.R
+## File Version: 0.05
 
 ###########################################
 # inits rater parameters

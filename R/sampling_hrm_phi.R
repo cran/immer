@@ -1,3 +1,5 @@
+## File Name: sampling_hrm_phi.R
+## File Version: 0.19
 
 ###########################################################
 # sampling phi parameters
@@ -14,8 +16,7 @@ sampling_hrm_phi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 	if ( est.phi != "n" )
 	{
 		for (ii in 1:I)
-		{
-			# ii <- 1				
+		{			
 			if ( est.phi=="a")
 			{
 				phi_new <- phi_old <- phi
@@ -42,52 +43,47 @@ sampling_hrm_phi <- function( dat , dat_ind , maxK , R , rater , pid , phi , psi
 			ll_new <- probs_hrm( x=dat[,ii] , xi=xi[ pid , ii ] , 
 									phi = phi_new[ ii , rater ] , 
 									psi = psi[ii,rater ] , K=maxK[ii] , 
-									x_ind = dat_ind[,ii] , useRcpp )
+									x_ind = dat_ind[,ii] , useRcpp=useRcpp )
 			ll_new <- rowsum( log( ll_new + eps ) , rater )[,1]
 			ll_old <- probs_hrm( x= dat[,ii] , xi=xi[ pid , ii ] , 
 									phi = phi_old[ ii , rater ] , 
 									psi = psi[ii,rater ] , K=maxK[ii] , 
-									x_ind = dat_ind[,ii] , useRcpp  )
+									x_ind = dat_ind[,ii] , useRcpp=useRcpp  )
 			ll_old <- rowsum( log( ll_old + eps ) , rater )[,1]
-			ratio <- p_new * exp( ll_new - ll_old ) / ( p_old  )
+			
+			ratio <- immer_sampling_calc_ratio( ll_old=ll_old, ll_new=ll_new, 
+							p_old=p_old, p_new=p_new, eps=eps ) 			
+							
 			if ( est.phi=="r")
 			{
 				ratio1 <- log( ratio ) + ratio1
 			}
 				
 			# estimate phi[i,r]
-			if ( est.phi == "a" )
-			{	
-				for (rr in 1:R)
-				{
+			if ( est.phi == "a" ){	
+				for (rr in 1:R){
 					if( is.na(ratio[rr] ) ){ ratio[rr] <- 0 }
-					if ( ratio[rr] > stats::runif(1) )
-					{
+						if ( ratio[rr] > stats::runif(1) ){
 							MHprop$accept$phi[ii,rr] <- MHprop$accept$phi[ii,rr] + 1 
 									phi[ii,rr] <- phi_new[ii,rr]
 					}
 				}  # end rr
-			}  # end est.phi == "a"										
+			}  # end est.phi == "a"
 		}  # end ii
 		####****
-		# if est.phi == "r"
-		if ( est.phi == "r" )
-		{	
-			for (rr in 1:R)
-			{
+		if ( est.phi == "r" ){	
+			for (rr in 1:R){
 				ratio[rr] <- exp(ratio1[rr]) 
-				if( is.na(ratio[rr] ) )
-				{ 
+				if( is.na(ratio[rr] ) ){ 
 					ratio[rr] <- 0 
 				}
-				if ( ratio[rr] > stats::runif(1) )
-				{
+				if ( ratio[rr] > stats::runif(1) ){
 					MHprop$accept$phi[1:I,rr] <- MHprop$accept$phi[1:I,rr] + 1 
 					phi[1:I,rr] <- phi_new[1:I,rr]
 				}
 			}  # end rr
-		}  # end est.phi == "r"																		
+		}  # end est.phi == "r"	
 	}  
 	res <- list( phi = phi , MHprop = MHprop )
-    return(res)				
+	return(res)	
 }

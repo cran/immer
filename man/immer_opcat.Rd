@@ -1,3 +1,6 @@
+%% File Name: immer_opcat.Rd
+%% File Version: 0.15
+
 \name{immer_opcat}
 \alias{immer_opcat}
 %- Also NEED an '\alias' for EACH other topic documented here.
@@ -5,7 +8,7 @@
 Estimation of Integer Item Discriminations
 }
 \description{
-Estimates integer item discrminations like in the one-parameter
+Estimates integer item discriminations like in the one-parameter
 logistic model (OPLM; Verhelst & Glas, 1995).
 See Verhelst, Verstralen and Eggen (1991) for computational
 details.
@@ -22,7 +25,7 @@ Vector of estimated item discriminations
 Prespecified harmonic mean
 }
   \item{min}{
-Minimum integer item discrmination
+Minimum integer item discrimination
 }
   \item{max}{
 Maximum integer item discrimination
@@ -52,9 +55,6 @@ CITO Measurement and Research Department Reports, 91-10.
 }
 
 
-\author{
-Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
-}
 
 
 %\note{

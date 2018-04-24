@@ -1,3 +1,5 @@
+## File Name: immer_FACETS.R
+## File Version: 0.23
 
 #####################################################
 # Wrapper to FACDOS (Linacre, 1999)

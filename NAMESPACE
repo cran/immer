@@ -20,10 +20,13 @@ importFrom(methods, is)
 importFrom(Rcpp, evalCpp)
 importFrom(stats, aggregate)
 importFrom(stats, anova)
+importFrom(stats, as.formula)
 importFrom(stats, coef)
 importFrom(stats, dlnorm)
 importFrom(stats, dnorm)
 importFrom(stats, logLik)
+importFrom(stats, model.matrix)
+importFrom(stats, nlminb)
 importFrom(stats, optim)
 importFrom(stats, pchisq)
 importFrom(stats, qlogis)
@@ -45,22 +48,35 @@ importFrom(utils, unzip)
 #***************************************************
 #************** Depends ****************************
 
+#---
 
 
 #***************************************************
-#************** Imports ****************************
+#************** Imports (own) **********************
 
+importFrom(CDM, csink)
 importFrom(CDM, IRT.anova)
 importFrom(CDM, IRT.likelihood)
 importFrom(CDM, IRT.posterior)
-importFrom(coda, as.mcmc.list)
-importFrom(psychotools, elementary_symmetric_functions)
+importFrom(CDM, osink)
 importFrom(sirt, mcmc.list.descriptives)
 importFrom(sirt, md.pattern.sirt)
+importFrom(sirt, rm_proc_data)
 importFrom(sirt, rowCumsums.sirt)
 importFrom(sirt, rowIntervalIndex.sirt)
+importFrom(sirt, sirt_summary_print_package_rsession)
+importFrom(sirt, sirt_summary_print_objects)
+importFrom(TAM, tam_matrix2)
+importFrom(TAM, tam_NA_pattern)
 
 
+
+#***************************************************
+#************** Imports (foreign) ******************
+
+importFrom(coda, as.mcmc.list)
+importFrom(MASS, ginv)
+importFrom(psychotools, elementary_symmetric_functions)
 
 
 
@@ -69,17 +85,23 @@ importFrom(sirt, rowIntervalIndex.sirt)
 ################  EXPORTS ##############################
 
 export(immer_agree2)
+export(immer_ccml)
 export(immer_cml)
+export(immer_create_design_matrix_formula)
 export(immer_FACETS)  
 export(immer_install)
-export(immer_HRM)
+export(immer_hrm)
+export(immer_hrm_simulate)
+export(immer_jml)
+export(immer_latent_regression)
 export(immer_opcat)
+export(immer_proc_data)
 export(immer_reshape_wideformat)
 export(immer_unique_patterns)
 export(lc2_agreement)
 export(logits2probs)
 export(probs2logits)
-export(simulate_HRM)
+
 
 
 
@@ -88,15 +110,28 @@ export(simulate_HRM)
 
 
 S3method(anova, immer_cml)
-S3method(anova, immer_HRM)
+S3method(anova, immer_hrm)
+S3method(anova, immer_latent_regression)
 S3method(anova, lc2_agreement)
-S3method(IRT.likelihood, immer_HRM)
-S3method(IRT.posterior, immer_HRM)
+S3method(coef, immer_ccml)
+S3method(coef, immer_cml)
+S3method(coef, immer_latent_regression)
+S3method(IRT.likelihood, immer_hrm)
+S3method(IRT.likelihood, immer_jml)
+S3method(IRT.posterior, immer_hrm)
 S3method(logLik, immer_cml)
-S3method(logLik, immer_HRM)
+S3method(logLik, immer_hrm)
+S3method(logLik, immer_jml)
+S3method(logLik, immer_latent_regression)
 S3method(logLik, lc2_agreement)
-S3method(plot, immer_HRM)
+S3method(plot, immer_hrm)
 S3method(summary, immer_agree2)
+S3method(summary, immer_ccml)
 S3method(summary, immer_cml)
-S3method(summary, immer_HRM)
+S3method(summary, immer_jml)
+S3method(summary, immer_hrm)
+S3method(summary, immer_latent_regression)
 S3method(summary, lc2_agreement)
+S3method(vcov, immer_ccml)
+S3method(vcov, immer_cml)
+S3method(vcov, immer_latent_regression)

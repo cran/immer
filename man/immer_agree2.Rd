@@ -1,3 +1,6 @@
+%% File Name: immer_agree2.Rd
+%% File Version: 0.14
+
 \name{immer_agree2}
 \alias{immer_agree2}
 \alias{summary.immer_agree2}
@@ -52,14 +55,11 @@ subjects according to Aicken}
 }
 
 \references{
-Gwet, K. L. (2010). \emph{Handbook of Inter-Rater Reliability}.
+Gwet, K. L. (2010). \emph{Handbook of inter-rater reliability}.
 Gaithersburg: Advanced Analytics.
 }
 
 
-\author{
-Alexander Robitzsch
-}
 %\note{
 %%  ~~further notes~~
 %}

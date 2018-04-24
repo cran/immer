@@ -1,3 +1,5 @@
+## File Name: immer_reshape_wideformat.R
+## File Version: 0.08
 
 
 immer_reshape_wideformat <- function( y , pid , rater , Nmin_ratings = 1 ){	
