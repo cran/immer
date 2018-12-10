@@ -6,9 +6,10 @@ If you use `immer` and have suggestions for improvement or have found bugs, plea
 
 #### CRAN version
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/immer)](https://cran.r-project.org/package=immer)
+<!---
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/immer)](https://cran.r-project.org/package=immer)
 &#160;&#160;
-
+-->
 
 The official version of `immer` is hosted on CRAN and may be found [here](https://cran.r-project.org/package=immer). 
 The CRAN version can be installed from within R using:

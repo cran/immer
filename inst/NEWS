@@ -56,6 +56,18 @@ https://sites.google.com/site/alexanderrobitzsch/software
 
 
 
+
+------------------------------------------------------------
+VERSIONS immer 1.1  |  2018-12-10  |  Last: immer 1.1-35
+------------------------------------------------------------
+
+ADDED * included datasets of mammogram ratings data.immer11 
+        (Zhang & Petersen, 2018, Statistics in Medicine) and 
+        figure skating ratings data.immer12 (Linacre, 2009)
+
+DATA  * included/modified datasets: data.immer11, data.immer12
+EXAMP * included/modified examples: ---
+
 ------------------------------------------------------------
 VERSIONS immer 1.0  |  2018-04-24  |  Last: immer 1.0-138
 ------------------------------------------------------------
@@ -94,8 +106,6 @@ DATA  * included/modified datasets: data.ptam4, data.ptam4long,
 EXAMP * included/modified examples: immer_jml (1),
         immer_ccml (1), immer_latent_regression (1),
         immer_proc_data (1)
-
-
 
 ------------------------------------------------------------
 VERSIONS immer 0.8  |  2017-04-27  |  Last: immer 0.8-5

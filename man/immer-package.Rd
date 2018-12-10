@@ -1,23 +1,25 @@
 %% File Name: immer-package.Rd
-%% File Version: 0.52
+%% File Version: 0.55
 
 \name{immer-package}
 \alias{immer-package}
 \alias{immer}
 \docType{package}
+
 \title{
-Item Response Models for Multiple Ratings
+\packageTitle{immer}
 }
 
 \description{
-    Implements some item response models for multiple
-    ratings, including the hierarchical rater model, 
-    conditional maximum likelihood estimation of linear 
-    logistic partial credit model and a wrapper function
-    to the commercial FACETS program. See Robitzsch and
-    Steinfeld (2018) for a description of the functionality
-    of the package.
+\packageDescription{immer}
 }
+
+\author{
+\packageAuthor{immer}
+
+Maintainer: \packageMaintainer{immer}
+}
+
 
 \details{
 
@@ -55,11 +57,7 @@ program FACETS (Linacre, 1999) for analyzing multi-faceted Rasch models.
 }
 
 }
-\author{
-Alexander Robitzsch, Jan Steinfeld \cr 
-\cr
-Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de> \cr 
-}
+
 
 %Federal Institute for Education Research, Innovation and Development of the 
 %Austrian School System (BIFIE Salzburg), Austria
@@ -68,7 +66,7 @@ Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de> \cr
 \references{
 Andersen, E. B. (1995). Polytomous Rasch models and their estimation.
 In G. H. Fischer & I. W. Molenaar (Eds.). \emph{Rasch Models} (pp. 39-52).
-New York: Springer.	
+New York: Springer.    
 
 Bertoli-Barsotti, L., Lando, T., & Punzo, A. (2014). Estimating a Rasch Model via 
 fuzzy empirical probability functions. In D. Vicari, A. Okada, G. Ragozini & 
@@ -89,6 +87,9 @@ estimation methods, and implementation in R.
 
 Varin, C., Reid, N., & Firth, D. (2011). An overview of composite likelihood methods. 
 \emph{Statistica Sinica, 21}, 5-42.
+
+Wang, W. C., Su, C. M., & Qiu, X. L. (2014). Item response models for local dependence 
+among multiple ratings. \emph{Journal of Educational Measurement, 51}(3), 260-280.
 }
 
 
