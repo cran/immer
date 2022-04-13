@@ -1,5 +1,5 @@
 %% File Name: immer_cml.Rd
-%% File Version: 0.42
+%% File Version: 0.441
 
 \name{immer_cml}
 \alias{immer_cml}
@@ -179,15 +179,14 @@ For CML estimation with sample weights see also the
 
 
 \examples{
+#############################################################################
+# EXAMPLE 1: Dichotomous data data.read
+#############################################################################
+
 library(sirt)
 library(psychotools)
 library(TAM)
 library(CDM)
-library(eRm)
-
-#############################################################################
-# EXAMPLE 1: Dichotomous data data.read
-#############################################################################
 
 data(data.read, package="sirt")
 dat <- data.read
@@ -201,6 +200,8 @@ logLik(mod1a) # extract log likelihood
 coef(mod1a)   # extract coefficients
 
 \dontrun{
+library(eRm)
+
 # estimate model in psychotools package
 mod1b <- psychotools::raschmodel(dat)
 summary(mod1b)
@@ -423,6 +424,6 @@ summary(mod2)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Conditional maximum likelihood estimation}
-\keyword{summary}
+%% \keyword{Conditional maximum likelihood estimation}
+%% \keyword{summary}
 % \keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
