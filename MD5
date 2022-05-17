@@ -1,4 +1,4 @@
-59c7508194545050243796f4700f6e31 *DESCRIPTION
+519b0b911927acf1ad8e1ddc3cd8bc0b *DESCRIPTION
 a0e764bf699b007d81921e44c1700ed7 *NAMESPACE
 5c0362ecc19f8613d84dcea71474a6eb *R/IRT.likelihood.immer_hrm.R
 a818180d13f3ce07ffd628bd43686e4e *R/IRT.likelihood_immer.R
@@ -6,7 +6,7 @@ ebf455aaf8c443e61a82737396a2e49c *R/MHprop_hrm.R
 e91fedb0298dc5ba1e601c47b9d39905 *R/MHprop_refresh.R
 ba5d1dd5bde8f0a0c3a4295b997ad805 *R/MHprop_refresh_pars.R
 5a5ba1a064b932326e0b711489639ab8 *R/MHprop_refresh_parstype.R
-a6e4bf088a345b672c0cae10da72344b *R/RcppExports.R
+aeaa58d33580cdee060b5a1a9326cb5c *R/RcppExports.R
 0c66739bec84fe9ca70a3748d6f71ae1 *R/agree_aicken.R
 9af7f41dae2576c68adf8b4b0b13f59d *R/anova_immer.R
 1fafe26656befc8c5eae14c76e91b0b0 *R/coef.immer.R
@@ -114,7 +114,7 @@ d679ead03f8e3b195a8020e7247cc1d6 *R/summary.lc2_agreement.R
 8bf3eca2a3d615bad927e88e9768d94c *R/vcov.immer.R
 619894cb094aaadb4d6034b43302b57f *R/zzz.R
 0dd377f39bbb673902d87b9bdebc8a3a *README.md
-cf805161bbbab9dddb6f675dd45498fc *build/partial.rdb
+d10e89b996380b7f62e953fa69c1046e *build/partial.rdb
 77ba8dbff297db58ab29e4348df5031f *data/data.immer01a.rda
 fd7cfdc1a7a31717f457b834029aa98e *data/data.immer01b.rda
 59dc822a3e5b3e606f5fed32f1a0e3e7 *data/data.immer02.rda
@@ -137,7 +137,7 @@ e5f69ca4fc892ac3e0e7112c84a5a53b *data/data.ptam4long.rda
 48e6b82263d29ad109f7ffdc33c14ffc *data/data.ptam4wide.rda
 fc33fd59a2374d1aadd3c08d3f1adcb2 *data/datalist
 68f499b1e56ba4988046932cb3bdd49e *inst/CITATION
-27b4884cafb152888286ee92884b9aeb *inst/NEWS
+8ba74c711e8b0bb41fe363353da70a6f *inst/NEWS
 e9f956095f5110ce1d322b7425e77045 *man/data.immer.Rd
 7537fe2a3f76f8a47b7f73206dbff319 *man/data.ptam.Rd
 9b8575924852a6efcafe34d0be8baeb1 *man/immer-package.Rd
@@ -158,7 +158,7 @@ cf0197bc80094068c471d2161cd6c620 *man/lc2_agreement.Rd
 b8a41caee83d6a0e72012bfae6a7d5bb *man/probs2logits.Rd
 3900e4e4b505787e0f3cb83ad8ba2138 *src/Makevars
 36dc26a5d3e080089104b503a783361f *src/Makevars.win
-91aa8ab283a9eba3a1f6929316a68441 *src/RcppExports.cpp
+2b85b5468a607ab72df18d13d715b7e5 *src/RcppExports.cpp
 734efc752218f4b78f3047dd8215b8e9 *src/immer_rcpp_ccml.cpp
 72f963f78022f6d6f89d324ce90304af *src/immer_rcpp_cml.cpp
 e251f16f380470418ceadba7313e9d26 *src/immer_rcpp_cmml.cpp
